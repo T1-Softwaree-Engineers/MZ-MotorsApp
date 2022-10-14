@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signup2">
+
+
+    <LinearLayout
+        android:layout_width="173dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="2dp"
+        android:id="@+id/logo"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp">
+
+        <ImageView
+            android:layout_width="193dp"
+            android:layout_height="193dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/logo_mz" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:textColor="#262626"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/carstore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins"
+        android:text="Welcome to MZMOTORS"
+        android:textAlignment="center"
+        android:textColor="#262626"
+        android:textSize="15dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/carstore"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:hint="Full name"
+        app:startIconDrawable="@drawable/ic_baseline_person_pin_24"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_name"
+            android:layout_width="300dp"
+            android:layout_height="64dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="Email address"
+        app:startIconDrawable="@drawable/ic_baseline_email_24"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
+            android:layout_width="300dp"
+            android:layout_height="64dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="Phone number"
+        app:startIconDrawable="@drawable/ic_baseline_phone_24"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phone"
+            android:layout_width="300dp"
+            android:layout_height="64dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone"
+        android:layout_marginTop="10dp"
+        android:hint="Password"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
+            android:layout_width="300dp"
+            android:layout_height="64dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnsignup"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/password"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#0066CC"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Sing up"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_below="@id/btnsignup"
+        android:textColor="@color/black"
+        android:id="@+id/or"
+        android:text="Or"
+        android:fontFamily="@font/poppins"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        android:id="@+id/separator1"
+        android:layout_marginTop="9dp"
+        android:layout_below="@id/btnsignup"
+        android:layout_marginRight="55dp"
+        android:layout_marginLeft="218dp"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        android:id="@+id/separator2"
+        android:layout_marginTop="9dp"
+        android:layout_below="@id/btnsignup"
+        android:layout_marginRight="218dp"
+        android:layout_marginLeft="55dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="105dp"
+        android:id="@+id/icons_sign"
+        android:layout_below="@+id/separator2"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp">
+
+        <ImageButton
+            android:id="@+id/btngoogle"
+            android:layout_width="20.5dp"
+            android:layout_height="20.11dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/google" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Linea1"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/icons_sign">
+
+
+        <TextView
+            android:id="@+id/login3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins"
+            android:text="Already have an account?"
+            android:textColor="#262626"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/login4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins"
+            android:text="Sign In"
+            android:textColor="#0066CC"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

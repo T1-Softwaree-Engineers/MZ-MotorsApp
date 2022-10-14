@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login2">
+
+
+<ImageView
+        android:id="@+id/Logo"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="37dp"
+        android:src="@drawable/logo_mz" />
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Logo"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins_semibold"
+
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="#262626"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/carstore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins"
+        android:text="Welcome to MZMOTORS"
+        android:textAlignment="center"
+        android:textColor="#262626"
+        android:textSize="15dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/carstore"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="80dp"
+        android:hint="Username"
+        app:counterEnabled="true"
+        app:counterMaxLength="25"
+        app:helperText="*Required"
+        app:startIconDrawable="@drawable/ic_baseline_person_pin_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_usarname"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_marginTop="20dp"
+        android:hint="Password"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/login2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+
+        android:fontFamily="@font/poppins"
+        android:text="Forget Password?"
+        android:textColor="#262626"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="254dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login2"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#0066CC"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Login"
+        android:textColor="#FFFFFF" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Linea1"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_below="@+id/btnlogin">
+
+        <TextView
+            android:id="@+id/login3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins"
+            android:text="Do not have an account?"
+            android:textColor="#262626"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/login4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins"
+            android:text="Sign up"
+            android:textColor="#0066CC"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
