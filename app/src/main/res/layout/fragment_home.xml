@@ -81,7 +81,7 @@
         android:fontFamily="@font/poppins"
         android:textSize="20dp"/>
 
-    
+
     <RelativeLayout
 
         android:id="@+id/post_container"
