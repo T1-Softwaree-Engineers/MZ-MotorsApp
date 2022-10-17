@@ -70,16 +70,9 @@
         android:layout_below="@+id/search_bar"
         android:id="@+id/carrousel">
 
-    </RelativeLayout>
+        
 
-    <TextView
-        android:layout_width="24dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="170dp"
-        android:layout_marginTop="153dp"
-        android:drawableRight="@drawable/ic_baseline_favorite_border_24"
-        android:fontFamily="@font/poppins"
-        android:textSize="20dp"/>
+    </RelativeLayout>
 
 
     <RelativeLayout
@@ -98,6 +91,16 @@
             android:id="@+id/containerimg"
             android:layout_width="match_parent"
             android:layout_height="180dp">
+
+            <TextView
+                android:layout_width="24dp"
+                android:id="@+id/btn_favorite"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="8dp"
+                android:drawableRight="@drawable/ic_baseline_favorite_border_24"
+                android:fontFamily="@font/poppins"
+                android:textSize="20dp"/>
 
             <ImageView
                 android:id="@+id/imgcar"
