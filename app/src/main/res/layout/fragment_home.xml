@@ -63,17 +63,13 @@
 
     </RelativeLayout>
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_bar"
         android:id="@+id/carrousel">
 
-        
-
     </RelativeLayout>
-
 
     <RelativeLayout
 
@@ -94,13 +90,12 @@
 
             <TextView
                 android:layout_width="24dp"
-                android:id="@+id/btn_favorite"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="170dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
                 android:drawableRight="@drawable/ic_baseline_favorite_border_24"
                 android:fontFamily="@font/poppins"
-                android:textSize="20dp"/>
+                android:textSize="20dp"></TextView>
 
             <ImageView
                 android:id="@+id/imgcar"
@@ -112,7 +107,8 @@
 
         </RelativeLayout>
 
-         <RelativeLayout
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/containerimg">
@@ -141,6 +137,15 @@
         </RelativeLayout>
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/post_container"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Log Out" />
 
 
 

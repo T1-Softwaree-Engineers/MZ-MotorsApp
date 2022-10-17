@@ -59,10 +59,8 @@
             android:layout_marginRight="20dp">
 
             <TextView
-                android:layout_width="35dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="320dp"
-                android:layout_marginTop="5dp"
                 android:drawableRight="@drawable/ic_baseline_delete_24"
                 android:textSize="20dp"
                 android:fontFamily="@font/poppins">
@@ -94,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/carro"
                 android:fontFamily="@font/poppins"
                 android:gravity="center"
@@ -107,7 +105,7 @@
                 android:layout_below="@+id/txt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/carro"
                 android:fontFamily="@font/poppins"

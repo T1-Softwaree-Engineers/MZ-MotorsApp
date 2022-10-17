@@ -7,6 +7,6 @@ Sell or Buy a car inseide the aplication made in android studio
 
 # Version 0.1
 
-Aplication made in android studio and desing in figma app and passed to android
+Aplication made in android studio and desing in figma app
 
 

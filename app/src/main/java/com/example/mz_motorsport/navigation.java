@@ -3,11 +3,14 @@ package com.example.mz_motorsport;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class navigation extends AppCompatActivity {
 
@@ -15,6 +18,7 @@ public class navigation extends AppCompatActivity {
     home home = new home();
     person person = new person();
     favorite favorite = new favorite();
+
 
 
     @Override
@@ -47,4 +51,5 @@ public class navigation extends AppCompatActivity {
             }
         });
     }
+
 }

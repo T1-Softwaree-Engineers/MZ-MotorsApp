@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,34 +19,25 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class CarDetails extends AppCompatActivity {
 
-    Button loguot,btn_interested;
+    Button btn_interested;
     TextView seeAll;
+    ImageView atras;
 
     Dialog d_contact;
-
-    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_details);
 
-        loguot = (Button)findViewById(R.id.logout);
+
         btn_interested = (Button)findViewById(R.id.btn_interested);
+        atras = (ImageView)findViewById(R.id.flecha_atras);
         seeAll = (TextView)findViewById(R.id.seeAll);
 
         d_contact = new Dialog(this);
 
-        mAuth = FirebaseAuth.getInstance();
 
-        loguot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                startActivity(new Intent(CarDetails.this, login2.class));
-                finish();
-            }
-        });
 
         seeAll.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,22 +47,21 @@ public class CarDetails extends AppCompatActivity {
             }
         });
 
+        atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CarDetails.this,navigation.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
         btn_interested.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openDialog();
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
-
-        if (user == null) {
-            startActivity(new Intent(CarDetails.this, login2.class));
-        }
     }
 
     private void openDialog() {
@@ -87,6 +78,21 @@ public class CarDetails extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        ImageView btn_close = d_contact.findViewById(R.id.imageViewClose);
+        btn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                d_contact.dismiss();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(CarDetails.this, navigation.class));
+        finish();
     }
 
 }
