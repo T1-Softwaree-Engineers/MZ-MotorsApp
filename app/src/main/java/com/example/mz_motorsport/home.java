@@ -19,6 +19,7 @@ public class home extends Fragment {
     View vista;
     Button loguot;
     RelativeLayout post_container;
+    String B;
 
     FirebaseAuth mAuth;
 
