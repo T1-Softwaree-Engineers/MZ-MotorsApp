@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, login2.class));
                     finish();
                 }else {
-                    startActivity(new Intent(MainActivity.this, CarDetails.class));
+                    startActivity(new Intent(MainActivity.this, navigation.class));
                     finish();
                 }
             }

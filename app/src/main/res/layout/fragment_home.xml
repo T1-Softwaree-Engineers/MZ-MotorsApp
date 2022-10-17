@@ -63,6 +63,7 @@
 
     </RelativeLayout>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,6 +72,16 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="153dp"
+        android:drawableRight="@drawable/ic_baseline_favorite_border_24"
+        android:fontFamily="@font/poppins"
+        android:textSize="20dp"/>
+
+    
     <RelativeLayout
 
         android:id="@+id/post_container"
@@ -88,15 +99,6 @@
             android:layout_width="match_parent"
             android:layout_height="180dp">
 
-            <TextView
-                android:layout_width="24dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="5dp"
-                android:drawableRight="@drawable/ic_baseline_favorite_border_24"
-                android:fontFamily="@font/poppins"
-                android:textSize="20dp"></TextView>
-
             <ImageView
                 android:id="@+id/imgcar"
                 android:layout_width="match_parent"
@@ -107,8 +109,7 @@
 
         </RelativeLayout>
 
-
-        <RelativeLayout
+         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/containerimg">
