@@ -16,27 +16,74 @@
 
     <TextView
         android:id="@+id/allDescription"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/flecha_atras"
-        android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industdgkdhgkdhgkhdkghdkghkdhgkdhgkdhgkdghkdghkkghdkghkguthdkgut uthgheguh oehrgoh eorgeoig orgeogeo ogtgtrjy etht egreg egerhe hetgegetgtgegthyjegeth etgettrgetjythet jetbwsrujyjndfhtthgtjtgb rtjtfwytkrthewrthyj erhtjetgetj thry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
         android:textSize="14dp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/poppins"/>
 
    <androidx.cardview.widget.CardView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_below="@+id/allDescription"
        android:layout_marginTop="25dp"
+       android:layout_alignParentBottom="true"
        android:backgroundTint="#DEDEDE"
        app:cardCornerRadius="30dp">
        
        <RelativeLayout
            android:layout_width="match_parent"
-           android:layout_height="match_parent">
+           android:layout_height="wrap_content">
+
+           <!--Contenedor de las Features-->
+           <RelativeLayout
+               android:id="@+id/allFeatures"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="40dp">
+
+               <TextView
+                   android:layout_width="300dp"
+                   android:layout_height="wrap_content"
+                   android:layout_centerHorizontal="true"
+                   android:fontFamily="@font/poppins_semibold"
+                   android:gravity="center"
+                   android:text="No hay nada por el momento"
+                   android:textSize="25dp" />
+
+           </RelativeLayout>
+
+           <!--Linea-->
+           <View
+               android:id="@+id/linea"
+               android:layout_width="330dp"
+               android:layout_height="2dp"
+               android:layout_below="@+id/allFeatures"
+               android:background="#8C9199"
+               android:layout_marginVertical="40dp"
+               android:layout_centerHorizontal="true"/>
+
+           <!--Contenedor Informacion Secundaria-->
+           <RelativeLayout
+               android:id="@+id/allInfoSecundaria"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_below="@+id/linea">
+
+               <TextView
+               android:layout_width="300dp"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="40dp"
+               android:layout_centerHorizontal="true"
+               android:text="No hay nada por el momento"
+               android:gravity="center"
+               android:fontFamily="@font/poppins_semibold"
+               android:textSize="25dp"/>
+
+           </RelativeLayout>
 
        </RelativeLayout>        
    </androidx.cardview.widget.CardView>

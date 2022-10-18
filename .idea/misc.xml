@@ -7,7 +7,7 @@
         <entry key="app/src/main/res/drawable/bg_features.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_car_details.xml" value="0.21" />
-        <entry key="app/src/main/res/layout/activity_car_details_extra.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_car_details_extra.xml" value="0.22" />
         <entry key="app/src/main/res/layout/contact_dialog.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.21" />
       </map>

@@ -46,7 +46,7 @@
             android:layout_height="33dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Tesla Model 3"
-            android:textSize="22dp" />
+            android:textSize="22dp"/>
 
         <TextView
             android:id="@+id/price_car"
@@ -190,8 +190,8 @@
                 android:layout_marginLeft="25dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Manzanillo, col"
-                android:textSize="12dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="12dp" />
         </RelativeLayout>
 
         <!--Contenedor infoSec 2-->
