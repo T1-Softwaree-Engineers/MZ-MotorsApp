@@ -70,7 +70,7 @@
         android:layout_below="@+id/search_bar"
         android:id="@+id/carrousel">
 
-        
+
 
     </RelativeLayout>
 
