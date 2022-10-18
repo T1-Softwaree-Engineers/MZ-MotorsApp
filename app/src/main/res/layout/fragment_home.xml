@@ -69,11 +69,7 @@
         android:layout_below="@+id/search_bar"
         android:id="@+id/carrousel">
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 15bba87028c265dc16558cfbffdb03b482db7900
     </RelativeLayout>
 
     <RelativeLayout
