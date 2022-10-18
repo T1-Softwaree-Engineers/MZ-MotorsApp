@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="20dp">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -18,8 +18,9 @@
                 android:id="@+id/imageViewClose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 app:srcCompat="@drawable/ic_close" />
 
             <!--Nombre-->
@@ -111,17 +112,13 @@
                 android:id="@+id/btn_contact"
                 android:layout_width="293dp"
                 android:layout_height="53dp"
-                android:layout_marginStart="25dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="260dp"
-                android:layout_marginBottom="50dp"
-                android:layout_marginEnd="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#0066CC"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="Contact with seller"
-                android:backgroundTint="#0066CC"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:text="Contact with seller" />
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

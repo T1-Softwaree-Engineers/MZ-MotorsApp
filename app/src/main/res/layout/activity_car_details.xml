@@ -10,9 +10,9 @@
         android:id="@+id/flecha_atras"
         android:layout_width="22dp"
         android:layout_height="22dp"
-        android:src="@drawable/flecha"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"/>
+        android:src="@drawable/flecha" />
 
 
     <androidx.cardview.widget.CardView
@@ -216,12 +216,6 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Log Out"/>
+
 
 </RelativeLayout>
