@@ -126,6 +126,15 @@
                 android:textSize="15dp" />
         </RelativeLayout>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/container_post"
+            android:text="go"
+            android:id="@+id/btnvender">
+
+        </Button>
+
 
     </RelativeLayout>
 

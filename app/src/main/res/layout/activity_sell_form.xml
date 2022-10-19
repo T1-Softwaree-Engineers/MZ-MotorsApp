@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sell_form">
+
+
+    <ImageView
+        android:id="@+id/flecha_atras"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/flecha" />
+
+    <!-- Relative Title-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/flecha_atras">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/containter_title_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Title"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/black">
+                </TextView>
+
+                <EditText
+                    android:id="@+id/TitlePost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtTitle"
+                    android:fontFamily="@font/poppins">
+                </EditText>
+
+            </RelativeLayout>
+
+            <!-- Linear Condition and Year-->
+
+            <LinearLayout
+                android:id="@+id/container_post_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/containter_title_post"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/container_condition"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtCondition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Condition"
+                        android:textColor="@color/black"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <RadioGroup
+                        android:id="@+id/radiogroup"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtCondition"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtn_new"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="New">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rbtn_used"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Used">
+
+                        </RadioButton>
+                    </RadioGroup>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/container_year"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Year"
+                        android:textColor="@color/black"
+                        android:textSize="15dp">
+
+                    </TextView>
+                    <RelativeLayout
+                        android:layout_width="190dp"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/txtYear">
+
+                        <EditText
+                            android:id="@+id/YearPost"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins">
+                        </EditText>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- Linear BRand and MOdel-->
+
+            <LinearLayout
+                android:id="@+id/container_post_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_post_1"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/container_brand"
+                    android:layout_width="190dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtBrand"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Brand"
+                        android:textColor="@color/black"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <EditText
+                        android:layout_below="@+id/txtBrand"
+                        android:id="@+id/BrandPost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins">
+                    </EditText>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/container_model"
+                    android:layout_width="190dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtModel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Model"
+                        android:textColor="@color/black"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <EditText
+                        android:layout_below="@+id/txtModel"
+                        android:id="@+id/ModelPost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins">
+                    </EditText>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/container_features"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_post_2"
+                android:layout_margin="10dp">
+                >
+
+                <TextView
+                    android:id="@+id/txtFeatures"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Features"
+                    android:textColor="@color/black"
+                    android:textSize="15dp">
+
+                </TextView>
+            </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/linea_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/container_features">
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_below="@id/txtFeatures"
+                        android:layout_margin="10dp"
+                        android:id="@+id/horizontalScrollView"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioGroup
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/feature_"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Feature example">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Feature example">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Feature example">
+
+                                </CheckBox>
+
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/container_post_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linea_horizontal"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/container_location"
+                    android:layout_width="190dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtlocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Location"
+                        android:textColor="@color/black"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <EditText
+                        android:layout_below="@+id/txtlocation"
+                        android:id="@+id/locationPost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins">
+                    </EditText>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/container_price"
+                    android:layout_width="190dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtprice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Price"
+                        android:textColor="@color/black"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <EditText
+                        android:layout_below="@id/txtprice"
+                        android:id="@+id/PricePost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins">
+                    </EditText>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/container_post_4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/container_post_3"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/txtDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/black">
+                </TextView>
+
+                <EditText
+                    android:id="@+id/descriptionpost"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:inputType="text|textMultiLine"
+                    android:gravity="top"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_below="@+id/txtDescripcion">
+                </EditText>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/container_post_5"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/container_post_4">
+
+                <TextView
+                    android:id="@+id/txtimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Upload images/Video"
+                    android:textColor="@color/black"
+                    android:textSize="20dp">
+
+                </TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/container_post_6"
+                android:layout_below="@+id/container_post_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <Button
+                    android:id="@+id/btn_interested"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:backgroundTint="#0066CC"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="SELL MY CAR"
+                    android:textSize="18dp"
+                    app:cornerRadius="10dp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

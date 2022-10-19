@@ -16,6 +16,13 @@
         android:theme="@style/Theme.MzMotorSport"
         tools:targetApi="31">
         <activity
+            android:name=".sell_form"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".navigation"
             android:exported="false">
             <meta-data

@@ -205,7 +205,6 @@
         android:layout_height="28dp"
         android:layout_below="@+id/divTitleFeatures"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
