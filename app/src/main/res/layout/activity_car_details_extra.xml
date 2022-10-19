@@ -6,86 +6,304 @@
     android:layout_height="match_parent"
     tools:context=".car_details_extra">
 
-    <ImageView
-        android:id="@+id/flecha_atras"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/flecha" />
-
-    <TextView
-        android:id="@+id/allDescription"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/flecha_atras"
+        android:id="@+id/topbar">
+
+        <ImageView
+            android:id="@+id/flecha_atras"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/flecha" />
+
+
+        <TextView
+            android:id="@+id/txtlogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/racing_sans_one"
+            android:gravity="center"
+            android:text="MZMOTORS"
+            android:textColor="#0066CC"
+            android:textSize="30dp"/>
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:id="@+id/tableDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+
+        android:layout_marginTop="30dp">
+
+        <TableRow>
+            <RelativeLayout
+                android:background="#d5d8dc"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Brand"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"></TextView>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="#eaecee"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtMarca"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="----"
+                    android:textColor="@color/black"
+                    android:textSize="14dp">
+
+                </TextView>
+            </RelativeLayout>
+
+        </TableRow>
+
+        <TableRow>
+            <RelativeLayout
+                android:background="#d5d8dc"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Model"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"></TextView>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="#eaecee"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtModelo"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="----"
+                    android:textColor="@color/black"
+                    android:textSize="14dp">
+
+                </TextView>
+            </RelativeLayout>
+
+        </TableRow>
+        <TableRow>
+            <RelativeLayout
+                android:background="#d5d8dc"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Year"
+                    android:textColor="@color/black"
+                    android:textSize="14dp">
+
+                </TextView>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="#eaecee"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtAÑo"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="----"
+                    android:textColor="@color/black"
+                    android:textSize="14dp">
+
+                </TextView>
+            </RelativeLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/divTitleFeatures"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_below="@+id/tableDetails">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Features"
+            android:textSize="15dp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black">
+        </TextView>
+
+    </RelativeLayout>
+    <!--Linear LAyout donde se mostraran las features,este linear se ciclara-->
+    <LinearLayout
+        android:id="@+id/features"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_below="@+id/divTitleFeatures"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industdgkdhgkdhgkhdkghdkghkdhgkdhgkdhgkdghkdghkkghdkghkguthdkgut uthgheguh oehrgoh eorgeoig orgeogeo ogtgtrjy etht egreg egerhe hetgegetgtgegthyjegeth etgettrgetjythet jetbwsrujyjndfhtthgtjtgb rtjtfwytkrthewrthyj erhtjetgetj thry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
-        android:textSize="14dp"
-        android:fontFamily="@font/poppins"/>
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-   <androidx.cardview.widget.CardView
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="25dp"
-       android:layout_alignParentBottom="true"
-       android:backgroundTint="#DEDEDE"
-       app:cardCornerRadius="30dp">
-       
-       <RelativeLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/feature"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/bg_features">
 
-           <!--Contenedor de las Features-->
-           <RelativeLayout
-               android:id="@+id/allFeatures"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="40dp">
+            <ImageView
+                android:id="@+id/checkbox2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/check_box" />
 
-               <TextView
-                   android:layout_width="300dp"
-                   android:layout_height="wrap_content"
-                   android:layout_centerHorizontal="true"
-                   android:fontFamily="@font/poppins_semibold"
-                   android:gravity="center"
-                   android:text="No hay nada por el momento"
-                   android:textSize="25dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_alignLeft="@+id/checkbox2"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="360° Camera"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+        </RelativeLayout>
 
-           </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/feature2"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/bg_features">
 
-           <!--Linea-->
-           <View
-               android:id="@+id/linea"
-               android:layout_width="330dp"
-               android:layout_height="2dp"
-               android:layout_below="@+id/allFeatures"
-               android:background="#8C9199"
-               android:layout_marginVertical="40dp"
-               android:layout_centerHorizontal="true"/>
+            <ImageView
+                android:id="@+id/checkbox3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/check_box" />
 
-           <!--Contenedor Informacion Secundaria-->
-           <RelativeLayout
-               android:id="@+id/allInfoSecundaria"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_below="@+id/linea">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_alignLeft="@+id/checkbox3"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="360° Camera"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+        </RelativeLayout>
 
-               <TextView
-               android:layout_width="300dp"
-               android:layout_height="wrap_content"
-               android:layout_marginBottom="40dp"
-               android:layout_centerHorizontal="true"
-               android:text="No hay nada por el momento"
-               android:gravity="center"
-               android:fontFamily="@font/poppins_semibold"
-               android:textSize="25dp"/>
+    </LinearLayout>
+    <!--Feature2-->
 
-           </RelativeLayout>
 
-       </RelativeLayout>        
-   </androidx.cardview.widget.CardView>
+    <RelativeLayout
+        android:id="@+id/containter_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_below="@+id/features">
+
+        <RelativeLayout
+            android:id="@+id/containter_title_features"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textSize="15dp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/black">
+            </TextView>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_below="@+id/containter_title_features"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur justo id augue auctor, at facilisis nisi tempus. Quisque efficitur dapibus justo a euismod. Ut nec est mi. Proin quam lectus, pellentesque id tortor vitae, maximus cursus nisl. Cras facilisis aliquam diam ut egestas. Nam ut turpis sit amet nisl scelerisque scelerisque. Sed vel semper tortor. Fusce sodales lorem in orci accumsan scelerisque. Quisque non eleifend sem. Donec a nulla eget lacus malesuada finibus non eu nisi. Pellentesque tempus lorem id volutpat fringilla. Duis euismod libero sed orci ultrices mattis. Integer egestas dignissim justo, sit amet ultricies felis scelerisque et. "
+            android:fontFamily="@font/poppins">
+
+        </TextView>
+
+
+    </RelativeLayout>
 
 </RelativeLayout>
