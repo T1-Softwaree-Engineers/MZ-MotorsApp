@@ -8,6 +8,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".person">
 
+    <!--
+        *Profile
+        *My post
+        *Sell Car
+        *Boton LogOUT
+
+    -->
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,20 +41,11 @@
             android:layout_below="@+id/txtlogo"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/poppins"
-            android:gravity="start"
+            android:gravity="center"
             android:layout_marginLeft="20dp"
-            android:text="My Posts"
+            android:text="User Account"
             android:textColor="#262626"
             android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/profile_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="345dp"
-            android:layout_marginTop="70dp"
-            android:gravity="center"
-            app:drawableStartCompat="@drawable/ic_baseline_person_22" />
 
     </RelativeLayout>
 
@@ -80,61 +79,16 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/container_post"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/container_title"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            >
-
-            <ImageView
-                android:id="@+id/carro"
-                android:layout_width="159dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/swift" />
-
-            <TextView
-                android:id="@+id/txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="61dp"
-                android:layout_marginTop="35dp"
-                android:layout_toRightOf="@+id/carro"
-                android:fontFamily="@font/poppins"
-                android:gravity="center"
-                android:text="Suzuki Swift"
-                android:textColor="#262626"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/txt1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txt"
-                android:layout_marginLeft="50dp"
-                android:layout_toRightOf="@+id/carro"
-                android:fontFamily="@font/poppins"
-                android:gravity="center"
-                android:text="Price: $300,000.00"
-                android:textColor="#262626"
-                android:textSize="15dp" />
-        </RelativeLayout>
+        
 
         <Button
+            android:id="@+id/btnvender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/container_post"
-            android:text="go"
-            android:id="@+id/btnvender">
-
-        </Button>
-
+            android:layout_alignParentBottom="true"
+            android:text="LOG OUT"
+            app:cornerRadius="10dp"
+            />
 
     </RelativeLayout>
 

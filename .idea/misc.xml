@@ -7,9 +7,13 @@
         <entry key="app/src/main/res/drawable/bg_features.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_car_details.xml" value="0.21" />
-        <entry key="app/src/main/res/layout/activity_car_details_extra.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_car_details_extra.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_sell_form.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.1675438596491228" />
+        <entry key="app/src/main/res/layout/activity_signup2.xml" value="0.1675438596491228" />
         <entry key="app/src/main/res/layout/contact_dialog.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.21" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.311960542540074" />
+        <entry key="app/src/main/res/layout/fragment_person.xml" value="0.25" />
       </map>
     </option>
   </component>
@@ -19,12 +23,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.2866847826086957" />
-      </ProjectState>
-    </option>
   </component>
 </project>

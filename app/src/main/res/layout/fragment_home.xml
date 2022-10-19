@@ -69,17 +69,25 @@
         android:layout_below="@+id/search_bar"
         android:id="@+id/carrousel">
 
-        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-            android:id="@+id/carousel"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="50dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            app:showTopShadow="false"
-            app:showBottomShadow="false"
-            app:imageScaleType="centerCrop"
-            app:carouselType="BLOCK"/>
+            android:layout_marginRight="15dp">
+
+            <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                android:id="@+id/carousel"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+
+                app:carouselType="BLOCK"
+                app:imageScaleType="centerCrop"
+                app:showBottomShadow="false"
+                app:showTopShadow="false" />
+        </androidx.cardview.widget.CardView>
+
+
 
 
     </RelativeLayout>
