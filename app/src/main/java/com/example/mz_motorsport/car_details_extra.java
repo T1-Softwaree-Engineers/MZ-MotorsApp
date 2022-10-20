@@ -33,6 +33,8 @@ public class car_details_extra extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent i = new Intent(car_details_extra.this, CarDetails.class);
+        startActivity(i);
         finish();
     }
 }

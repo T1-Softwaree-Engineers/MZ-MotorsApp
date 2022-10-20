@@ -24,9 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class home extends Fragment {
 
     View vista;
-    Button loguot;
     RelativeLayout post_container;
-    FirebaseAuth mAuth;
 
     List<CarouselItem> list = new ArrayList<>();
 
@@ -70,10 +68,9 @@ public class home extends Fragment {
 
         carousel.setData(list);
 
-        loguot = (Button)vista.findViewById(R.id.logout);
+
         post_container = (RelativeLayout) vista.findViewById(R.id.post_container);
 
-        mAuth = FirebaseAuth.getInstance();
 
 
         post_container.setOnClickListener(new View.OnClickListener() {
@@ -85,15 +82,7 @@ public class home extends Fragment {
             }
         });
 
-        loguot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                startActivity(new Intent(getActivity(), login2.class));
-                getActivity().finish();
 
-            }
-        });
 
         return vista;
 

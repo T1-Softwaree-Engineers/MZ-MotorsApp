@@ -161,14 +161,7 @@
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/post_container"
-        android:layout_marginBottom="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="Log Out" />
+
 
 
 

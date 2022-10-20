@@ -55,38 +55,131 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/topbar"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        >
+        android:layout_marginLeft="10dp">
 
-        <RelativeLayout
+        <!--Boton Perfil-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/container_title"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:layout_marginTop="30dp"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardElevation="0dp"
+            android:clickable="true">
 
-            <TextView
-                android:id="@+id/txtFechaPost"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fecha"
-                android:textSize="15dp"
-                android:fontFamily="@font/poppins">
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            </TextView>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
 
-        </RelativeLayout>
+                    android:src="@drawable/ic_baseline_person_24"/>
 
-        
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Profile"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/poppins_bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <Button
+        <!--Boton MyPost-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnMyPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:layout_below="@+id/btnProfile"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardElevation="0dp"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_input_24"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:text="My Post"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/poppins_bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <!--Boton Sell Car-->
+        <androidx.cardview.widget.CardView
             android:id="@+id/btnvender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/btnMyPost"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardElevation="0dp"
+            android:clickable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_baseline_attach_money_24"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="Sell Car"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/poppins_bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="340dp"
+            android:layout_height="2dp"
+            android:layout_centerHorizontal="true"
+            android:background="#d5d8dc"
+            android:layout_below="@+id/btnvender"
+            android:layout_marginTop="40dp"/>
+
+        <Button
+            android:id="@+id/btnlogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line"
+            android:layout_marginTop="150dp"
+            android:layout_marginBottom="15dp"
             android:text="LOG OUT"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#F44336"
+            style="?attr/materialButtonOutlinedStyle"
+            app:strokeColor="#F44336"
             app:cornerRadius="10dp"
             />
 

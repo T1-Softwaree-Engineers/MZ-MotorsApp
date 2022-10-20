@@ -24,4 +24,12 @@ public class sell_form extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(sell_form.this,navigation.class);
+        startActivity(i);
+        finish();
+    }
 }

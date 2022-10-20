@@ -44,6 +44,7 @@ public class CarDetails extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(CarDetails.this,car_details_extra.class);
                 startActivity(i);
+                finish();
             }
         });
 

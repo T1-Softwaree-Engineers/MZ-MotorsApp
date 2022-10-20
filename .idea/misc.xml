@@ -5,15 +5,24 @@
       <map>
         <entry key="app/src/main/res/drawable/bg_allFeatures.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_features.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/effect_pressed.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_20.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_22.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_person.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_car_details.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_car_details_extra.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_navigation.xml" value="0.1675438596491228" />
         <entry key="app/src/main/res/layout/activity_sell_form.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.1675438596491228" />
         <entry key="app/src/main/res/layout/activity_signup2.xml" value="0.1675438596491228" />
         <entry key="app/src/main/res/layout/contact_dialog.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.311960542540074" />
-        <entry key="app/src/main/res/layout/fragment_person.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_person.xml" value="0.18" />
       </map>
     </option>
   </component>
