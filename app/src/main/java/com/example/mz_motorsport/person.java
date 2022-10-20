@@ -44,6 +44,15 @@ public class person extends Fragment {
             }
         });
 
+        btnMypost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),MyPost.class);
+                startActivity(i);
+                getActivity().finish();
+            }
+        });
+
 
         loguot.setOnClickListener(new View.OnClickListener() {
             @Override

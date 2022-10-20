@@ -31,7 +31,9 @@
             android:gravity="center"
             android:text="MZMOTORS"
             android:textColor="#0066CC"
-            android:textSize="30dp" />
+            android:textSize="30dp">
+
+        </TextView>
 
 
         <TextView
@@ -40,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtlogo"
             android:layout_marginTop="15dp"
+
             android:fontFamily="@font/poppins"
             android:gravity="center"
             android:layout_marginLeft="20dp"
@@ -55,9 +58,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/topbar"
-        android:layout_marginTop="100dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="60dp">
 
         <!--Boton Perfil-->
         <androidx.cardview.widget.CardView
@@ -71,24 +75,23 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-
                     android:src="@drawable/ic_baseline_person_24"/>
-
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:text="Profile"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/poppins_bold"/>
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_semibold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -105,23 +108,25 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_baseline_input_24"/>
+                    android:src="@drawable/ic_baseline_shopping_bag_24"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="8dp"
                     android:text="My Post"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/poppins_bold"/>
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_semibold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -133,12 +138,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnMyPost"
             android:foreground="?attr/selectableItemBackground"
+            android:layout_marginBottom="15dp"
             app:cardElevation="0dp"
             android:clickable="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -152,37 +158,35 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-                    android:text="Sell Car"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/poppins_bold"/>
+                    android:text="Sell a Car"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_semibold"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <View
-            android:id="@+id/line"
-            android:layout_width="340dp"
-            android:layout_height="2dp"
-            android:layout_centerHorizontal="true"
-            android:background="#d5d8dc"
-            android:layout_below="@+id/btnvender"
-            android:layout_marginTop="40dp"/>
-
-        <Button
-            android:id="@+id/btnlogout"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/line"
-            android:layout_marginTop="150dp"
-            android:layout_marginBottom="15dp"
-            android:text="LOG OUT"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="#F44336"
-            style="?attr/materialButtonOutlinedStyle"
-            app:strokeColor="#F44336"
-            app:cornerRadius="10dp"
-            />
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+           android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/btnlogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOGOUT"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp">
 
+            </Button>
+        </RelativeLayout>
     </RelativeLayout>
+
+
 
 </RelativeLayout>
