@@ -50,7 +50,6 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:hint="example@mail.com"
         app:counterEnabled="true"
         app:counterMaxLength="25"
         app:helperText="*Required"
@@ -61,7 +60,8 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:hint="example@mail.com"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
