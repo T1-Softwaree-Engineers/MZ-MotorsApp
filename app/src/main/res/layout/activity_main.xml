@@ -20,5 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="#0065CA" />
+        android:backgroundTint="#0065CA"
+        android:progressTint="#0065CA"
+        android:progressTintMode="add" />
 </RelativeLayout>
