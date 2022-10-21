@@ -138,7 +138,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="#0066CC"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Sing up"
+        android:text="Sign up"
         android:textColor="#FFFFFF" />
 
     <TextView
