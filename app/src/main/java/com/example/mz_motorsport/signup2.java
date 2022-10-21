@@ -87,6 +87,7 @@ public class signup2 extends AppCompatActivity {
                     Toast.makeText(signup2.this, "Registro valido", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), login2.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         }, new Response.ErrorListener() {
