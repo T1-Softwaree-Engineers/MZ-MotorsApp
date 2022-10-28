@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class person extends Fragment {
 
     View vista;
-    CardView btnvender, btnMypost;
+    CardView btnvender, btnMypost, btnProfile;
     Button loguot;
 
     FirebaseAuth mAuth;
@@ -27,6 +27,8 @@ public class person extends Fragment {
         vista = inflater.inflate(R.layout.fragment_person, container, false);
         btnvender = (CardView) vista.findViewById(R.id.btnvender);
         btnMypost = (CardView) vista.findViewById(R.id.btnMyPost);
+        btnProfile = (CardView) vista.findViewById(R.id.btnProfile);
+
         loguot = (Button)vista.findViewById(R.id.btnlogout);
 
         mAuth = FirebaseAuth.getInstance();
@@ -48,6 +50,15 @@ public class person extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),MyPost.class);
+                startActivity(i);
+                getActivity().finish();
+            }
+        });
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),Profile.class);
                 startActivity(i);
                 getActivity().finish();
             }
