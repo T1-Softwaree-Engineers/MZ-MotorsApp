@@ -54,8 +54,10 @@
         android:layout_below="@+id/imgcontainer"
         android:layout_marginTop="10dp"
         android:text="Add/update photo"
+        android:fontFamily="@font/poppins_bold"
         android:textAlignment="center"
-        android:textSize="18dp"/>
+        android:textSize="15dp"/>
+
 
     <TableLayout
         android:id="@+id/tableDetails"

@@ -250,30 +250,82 @@
                                 android:orientation="horizontal">
 
                                 <CheckBox
-                                    android:id="@+id/feature_"
+                                    android:id="@+id/feature_bluetooth"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
-                                    android:text="Feature example">
+                                    android:text="Bluetooth">
 
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_2"
+                                    android:id="@+id/feature_AC"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
-                                    android:text="Feature example">
+                                    android:text="A/C">
 
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_3"
+                                    android:id="@+id/feature_Alarma"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
-                                    android:text="Feature example">
+                                    android:text="Alarma">
 
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_AppleAndroind"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="AplecarPlay/AndroidAuto">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_frenosABS"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Frenos ABS">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_CamaraReversa"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Camara de Reversa">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_Sensores"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Sensores de estacionamiento">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_bolsas_aire"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Bolsas de Aire">
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_electrico"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Sistema electrico">
                                 </CheckBox>
 
                             </RadioGroup>
