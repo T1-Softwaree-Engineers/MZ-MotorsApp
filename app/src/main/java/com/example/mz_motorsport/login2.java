@@ -60,7 +60,7 @@ public class login2 extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginUser("https://ochoarealestateservices.com/mzmotors_api/db/validation.php");
+                loginUser("https://ochoarealestateservices.com/mzmotors/db/validation.php");
             }
         });
 
