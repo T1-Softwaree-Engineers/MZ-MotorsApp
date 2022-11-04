@@ -3,7 +3,9 @@ package com.example.mz_motorsport;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,6 +20,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +28,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +40,7 @@ public class login2 extends AppCompatActivity {
     TextView signup;
     TextInputEditText et_username, et_password;
     Button btn_login;
+    String email, password;
 
 
     @Override
@@ -60,7 +67,16 @@ public class login2 extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginUser("https://ochoarealestateservices.com/mzmotors/db/validation.php");
+                email = et_username.getText().toString();
+                password = et_password.getText().toString();
+                if (email.isEmpty()){
+                    Toast.makeText(login2.this, "Ingrese su correo", Toast.LENGTH_SHORT).show();
+                }else if (password.isEmpty()){
+                    Toast.makeText(login2.this, "Ingrese su contraseña", Toast.LENGTH_SHORT).show();
+                }else{
+                    loginUser("http://192.168.50.166/APP/validation.php");
+                }
+
             }
         });
 
@@ -73,47 +89,62 @@ public class login2 extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                if(response.equals("no_email"))
-                {
-                    Toast.makeText(login2.this, "Ingrese un email", Toast.LENGTH_SHORT).show();
-                }
-                if(response.equals("empty_password"))
-                {
-                    Toast.makeText(login2.this, "Ingrese una contraseña", Toast.LENGTH_SHORT).show();
-                }
-                else if(response.equals("empty_data"))
-                {
-                    Toast.makeText(login2.this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
+                if (!response.isEmpty()){
+                    guardarSession(email, password);
+                    startActivity(new Intent(login2.this, navigation.class));
+                    finish();
+                }else{
+                    Toast.makeText(login2.this, "Usuario o Contraseña incorrectas", Toast.LENGTH_SHORT).show();
                 }
 
-                else if(response.equals("1"))
-                {
-                    Intent intent = new Intent(getApplicationContext(), navigation.class);
-                    startActivity(intent);
-                    finish();
-                }
-                else if(response.equals("no_verif"))
-                {
-                    Toast.makeText(login2.this, "Email o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(login2.this, error.toString(), Toast.LENGTH_LONG).show();
-                String text = error.toString();
-                Log.e("error",text);
+
             }
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("email", et_username.getText().toString());
-                parametros.put("password", et_password.getText().toString());
+                parametros.put("email", email);
+                parametros.put("password", password);
                 return parametros;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+
+
+        /*-----------------------------------------------------------------------------------------------------------
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, null ,new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                String test = response.toString();
+                Log.e("Erro: ", test);
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(login2.this, error.toString(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+        RequestQueue requestQueue2 = Volley.newRequestQueue(this);
+        requestQueue2.add(jsonObjectRequest);*/
+    }
+
+    private void guardarSession(String uEmail, String uPassword) {
+        SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=datosU.edit();
+        editor.putString("email",uEmail);
+        editor.putString("password",uPassword);
+        editor.putBoolean("session",true);
+        editor.commit();
     }
 }

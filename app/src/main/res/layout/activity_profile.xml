@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            
             android:fontFamily="@font/racing_sans_one"
             android:gravity="center"
             android:text="MZMOTORS"
@@ -26,43 +27,37 @@
             android:textSize="60dp"/>
 
 
-
     </RelativeLayout>
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgcontainer"
+        android:layout_marginTop="50dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:cardCornerRadius="80dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff">
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/person_foto"/>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imgcontainer">
-
-        <androidx.cardview.widget.CardView
-
-            android:layout_marginTop="50dp"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            app:cardCornerRadius="80dp"
-            android:layout_centerHorizontal="true"
-            android:textColor="#ffffff">
-
-            <ImageView
-                android:id="@+id/profileImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/person_foto" />
-
-        </androidx.cardview.widget.CardView>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addphoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="120dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    </RelativeLayout>
+        android:id="@+id/addphoto"
+        android:layout_below="@+id/imgcontainer"
+        android:layout_marginTop="10dp"
+        android:text="Add/update photo"
+        android:fontFamily="@font/poppins_bold"
+        android:textAlignment="center"
+        android:textSize="15dp"/>
 
 
     <TableLayout
@@ -152,8 +147,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true">
+
         <Button
-            android:id="@+id/logoutBtn"
+            android:id="@+id/btnlogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LOGOUT"

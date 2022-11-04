@@ -46,10 +46,13 @@
                 <EditText
                     android:id="@+id/TitlePost"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:paddingLeft="10dp"
+                    android:background="@drawable/custom_input"
+                    android:hint="Enter title"
+                    android:textSize="12dp"
                     android:layout_below="@+id/txtTitle"
-                    android:fontFamily="@font/poppins">
-                </EditText>
+                    android:fontFamily="@font/poppins"></EditText>
 
             </RelativeLayout>
 
@@ -133,9 +136,12 @@
                         <EditText
                             android:id="@+id/YearPost"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins">
-                        </EditText>
+                            android:layout_height="40dp"
+                            android:paddingLeft="10dp"
+                            android:background="@drawable/custom_input"
+                            android:hint="Enter year"
+                            android:textSize="12dp"
+                            android:fontFamily="@font/poppins"></EditText>
                     </RelativeLayout>
                 </RelativeLayout>
             </LinearLayout>
@@ -167,19 +173,23 @@
                     </TextView>
 
                     <EditText
-                        android:layout_below="@+id/txtBrand"
                         android:id="@+id/BrandPost"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins">
-                    </EditText>
+                        android:layout_height="40dp"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/custom_input"
+                        android:hint="Enter brand"
+                        android:textSize="12dp"
+                        android:layout_below="@+id/txtBrand"
+                        android:fontFamily="@font/poppins"></EditText>
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/container_model"
                     android:layout_width="190dp"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp">
 
                     <TextView
                         android:id="@+id/txtModel"
@@ -196,7 +206,11 @@
                         android:layout_below="@+id/txtModel"
                         android:id="@+id/ModelPost"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/custom_input"
+                        android:hint="Enter model"
+                        android:textSize="12dp"
                         android:fontFamily="@font/poppins">
                     </EditText>
 
@@ -232,11 +246,11 @@
                     android:layout_below="@+id/container_features">
 
                     <HorizontalScrollView
+                        android:id="@+id/horizontalScrollView"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_below="@id/txtFeatures"
                         android:layout_margin="10dp"
-                        android:id="@+id/horizontalScrollView"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -250,31 +264,81 @@
                                 android:orientation="horizontal">
 
                                 <CheckBox
-                                    android:id="@+id/feature_"
+                                    android:id="@+id/feature_bluetooth"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
-                                    android:text="Feature example">
+                                    android:text="Bluetooth">
 
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_2"
+                                    android:id="@+id/feature_AC"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
-                                    android:text="Feature example">
+                                    android:text="A/C">
 
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_3"
+                                    android:id="@+id/feature_Alarma"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
-                                    android:text="Feature example">
+                                    android:text="Alarma">
 
                                 </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_AppleAndroind"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="AplecarPlay/AndroidAuto">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_frenosABS"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Frenos ABS">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_CamaraReversa"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Camara de Reversa">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_Sensores"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Sensores de estacionamiento">
+
+                                </CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_bolsas_aire"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Bolsas de Aire"></CheckBox>
+
+                                <CheckBox
+                                    android:id="@+id/feature_electrico"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="Sistema electrico"></CheckBox>
 
                             </RadioGroup>
 
@@ -309,19 +373,23 @@
                     </TextView>
 
                     <EditText
-                        android:layout_below="@+id/txtlocation"
-                        android:id="@+id/locationPost"
+                        android:id="@+id/LocationPost"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins">
-                    </EditText>
+                        android:layout_height="40dp"
+                        android:layout_below="@+id/txtlocation"
+                        android:background="@drawable/custom_input"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Enter location"
+                        android:paddingLeft="10dp"
+                        android:textSize="12dp"></EditText>
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/container_price"
                     android:layout_width="190dp"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp">
 
                     <TextView
                         android:id="@+id/txtprice"
@@ -335,12 +403,15 @@
                     </TextView>
 
                     <EditText
-                        android:layout_below="@id/txtprice"
                         android:id="@+id/PricePost"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins">
-                    </EditText>
+                        android:layout_height="40dp"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/custom_input"
+                        android:hint="Enter price"
+                        android:textSize="12dp"
+                        android:layout_below="@id/txtprice"
+                        android:fontFamily="@font/poppins"></EditText>
 
                 </RelativeLayout>
 
@@ -364,13 +435,17 @@
                 </TextView>
 
                 <EditText
-                    android:id="@+id/descriptionpost"
+                    android:id="@+id/descriptionPost"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="110dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="6dp"
                     android:inputType="text|textMultiLine"
                     android:gravity="top"
                     android:textSize="12dp"
+                    android:hint="Enter description"
                     android:fontFamily="@font/poppins"
+                    android:background="@drawable/custom_input"
                     android:layout_below="@+id/txtDescripcion">
                 </EditText>
 
@@ -405,7 +480,7 @@
                 android:layout_margin="10dp">
 
                 <Button
-                    android:id="@+id/btn_interested"
+                    android:id="@+id/btnSell"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:layout_alignParentBottom="true"
