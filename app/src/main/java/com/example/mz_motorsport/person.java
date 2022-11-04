@@ -18,9 +18,7 @@ public class person extends Fragment {
 
     View vista;
     CardView btnvender, btnMypost, btnProfile;
-    Button loguot;
 
-    FirebaseAuth mAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -29,9 +27,6 @@ public class person extends Fragment {
         btnMypost = (CardView) vista.findViewById(R.id.btnMyPost);
         btnProfile = (CardView) vista.findViewById(R.id.btnProfile);
 
-        loguot = (Button)vista.findViewById(R.id.btnlogout);
-
-        mAuth = FirebaseAuth.getInstance();
 
         // Inflate the layout for this fragment
 
@@ -64,16 +59,6 @@ public class person extends Fragment {
             }
         });
 
-
-        loguot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                startActivity(new Intent(getActivity(), login2.class));
-                getActivity().finish();
-
-            }
-        });
 
         return vista;
 

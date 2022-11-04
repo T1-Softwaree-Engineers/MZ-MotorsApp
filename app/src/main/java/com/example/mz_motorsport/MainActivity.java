@@ -2,7 +2,9 @@ package com.example.mz_motorsport;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     Animation topanim;
     ImageView logosplash;
-    FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
+
 
 
         //Animacion para la splash screen
@@ -41,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                FirebaseUser user = mAuth.getCurrentUser();
-
-                if (user == null) {
-                    startActivity(new Intent(MainActivity.this, login2.class));
-                    finish();
-                }else {
+                SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
+                boolean session = datosU.getBoolean("session",false);
+                if(session){
                     startActivity(new Intent(MainActivity.this, navigation.class));
+                    finish();
+                }else{
+                    startActivity(new Intent(MainActivity.this, login2.class));
                     finish();
                 }
             }
