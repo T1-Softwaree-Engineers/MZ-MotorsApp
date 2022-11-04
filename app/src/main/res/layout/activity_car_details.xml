@@ -25,23 +25,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/img_car"
-                android:layout_width="366dp"
-                android:layout_height="366dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                app:cardCornerRadius="20dp">
 
-                <ImageView
-                    tools:ignore="ContentDescription"
-                    android:src="@drawable/car_1"
-                    android:scaleType="centerCrop"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </androidx.cardview.widget.CardView>
+            <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                 android:layout_width="match_parent"
+                 android:layout_height="200dp"
+                 android:id="@+id/img_car"
+                 app:carouselType="BLOCK"
+                 app:cardCornerRadius="50dp"
+                 android:layout_marginLeft="15dp"
+                 android:layout_marginRight="15dp"
+                 app:showBottomShadow="false"
+                 app:showTopShadow="false"/>
 
-            <RelativeLayout
+
+
+
+    <RelativeLayout
                 android:id="@+id/info_principal"
                 android:layout_width="366dp"
                 android:layout_height="wrap_content"

@@ -13,6 +13,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,11 +32,14 @@ public class CarDetails extends AppCompatActivity {
     ImageView atras;
 
     Dialog d_contact;
+    List<CarouselItem> list = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_details);
+        ImageCarousel carousel = findViewById(R.id.img_car);
 
 
         btn_interested = (Button)findViewById(R.id.btn_interested);
@@ -36,6 +47,17 @@ public class CarDetails extends AppCompatActivity {
         seeAll = (TextView)findViewById(R.id.seeAll);
 
         d_contact = new Dialog(this);
+        // Image drawable with caption
+        list.add(
+                new CarouselItem(
+                        R.drawable.car_1,
+                        "Tesla model 3"
+
+
+                )
+
+        );
+        carousel.setData(list);
 
 
 
@@ -95,5 +117,6 @@ public class CarDetails extends AppCompatActivity {
         startActivity(new Intent(CarDetails.this, navigation.class));
         finish();
     }
+
 
 }
