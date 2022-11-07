@@ -76,7 +76,7 @@ public class login2 extends AppCompatActivity {
                 }else if(password.isEmpty()){
                     Toast.makeText(login2.this, "Ingrese su contraseña", Toast.LENGTH_SHORT).show();
                 }else{
-                    loginUser("http://192.168.50.166/users.php?email="+email+"&pwd="+password);
+                    loginUser("https://ochoarealestateservices.com/mzmotors/users.php?email="+email+"&pwd="+password);
                 }
 
             }

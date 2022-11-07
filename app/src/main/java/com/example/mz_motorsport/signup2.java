@@ -76,7 +76,7 @@ public class signup2 extends AppCompatActivity {
                 }else if (et_password.length() > 1 && et_password.length() < 6){
                     Toast.makeText(signup2.this, "Su contraseña debe de tener mas de 6 caracteres", Toast.LENGTH_SHORT).show();
                 }else {
-                    registrarUser("http://192.168.50.166/users.php");
+                    registrarUser("https://ochoarealestateservices.com/mzmotors/users.php");
                 }
 
             }
