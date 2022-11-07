@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -43,10 +44,15 @@ public class sell_form extends AppCompatActivity {
 
         atras = (ImageView)findViewById(R.id.flecha_atras);
         title = (EditText)findViewById(R.id.TitlePost);
+        title.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
         year = (EditText)findViewById(R.id.YearPost);
+        year.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10)});
         brand = (EditText)findViewById(R.id.BrandPost);
+        brand.setFilters(new InputFilter[]{new InputFilter.LengthFilter(30)});
         model = (EditText)findViewById(R.id.ModelPost);
+        model.setFilters(new InputFilter[]{new InputFilter.LengthFilter(30)});
         location = (EditText)findViewById(R.id.LocationPost);
+        location.setFilters(new InputFilter[]{new InputFilter.LengthFilter(40)});
         price = (EditText)findViewById(R.id.PricePost);
         description = (EditText)findViewById(R.id.descriptionPost);
 
@@ -70,6 +76,7 @@ public class sell_form extends AppCompatActivity {
             public void onClick(View view) {
                 onBackPressed();
             }
+
         });
 
 
@@ -137,7 +144,7 @@ public class sell_form extends AppCompatActivity {
                 }else {
                     //Toast.makeText(sell_form.this, "Lleno", Toast.LENGTH_SHORT).show();
                     //Log.e("Features", txtFeatures);
-                    createPost("http://192.168.50.166/publicaciones.php");
+                    createPost("https://ochoarealestateservices.com/mzmotors/publicaciones.php");
                 }
 
 

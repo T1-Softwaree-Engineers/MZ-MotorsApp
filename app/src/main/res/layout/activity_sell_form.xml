@@ -43,6 +43,7 @@
                     android:textColor="@color/black">
                 </TextView>
 
+
                 <EditText
                     android:id="@+id/TitlePost"
                     android:layout_width="match_parent"
@@ -53,6 +54,7 @@
                     android:textSize="12dp"
                     android:layout_below="@+id/txtTitle"
                     android:fontFamily="@font/poppins"></EditText>
+
 
             </RelativeLayout>
 
