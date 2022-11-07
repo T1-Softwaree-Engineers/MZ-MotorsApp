@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
 
-    TextView addphoto;
+    TextView addphoto, uName, uEmail, uPhone;
     Button loguot;
 
     @Override
@@ -20,7 +20,15 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        uName = (TextView)findViewById(R.id.name);
+        uEmail = (TextView)findViewById(R.id.email);
+        uPhone = (TextView)findViewById(R.id.phone);
         loguot = (Button)findViewById(R.id.btnlogout);
+
+        SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
+        uName.setText(datosU.getString("nombre", "???Nombre???"));
+        uEmail.setText(datosU.getString("email", "???Email???"));
+        uPhone.setText(datosU.getString("phone", "???Contacto???"));
 
 
         loguot.setOnClickListener(new View.OnClickListener() {

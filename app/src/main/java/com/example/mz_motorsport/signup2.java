@@ -18,14 +18,29 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpClientStack;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.HttpResponse;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.NameValuePair;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.HttpClient;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.entity.UrlEncodedFormEntity;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.methods.HttpPost;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.impl.client.DefaultHttpClient;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.message.BasicNameValuePair;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class signup2 extends AppCompatActivity {
@@ -50,7 +65,20 @@ public class signup2 extends AppCompatActivity {
         btn_Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registrarUser("https://ochoarealestateservices.com/mzmotors_api/db/register.php");
+                if (et_name.length() == 0){
+                    Toast.makeText(signup2.this, "Ingrese un Nombre", Toast.LENGTH_SHORT).show();
+                }else if(et_email.length() == 0){
+                    Toast.makeText(signup2.this, "Ingrese un Correo", Toast.LENGTH_SHORT).show();
+                }else if(et_phone.length() == 0){
+                    Toast.makeText(signup2.this, "Ingrese un Telefono", Toast.LENGTH_SHORT).show();
+                }else if(et_password.length() == 0){
+                    Toast.makeText(signup2.this, "Ingrese una Contraseña", Toast.LENGTH_SHORT).show();
+                }else if (et_password.length() > 1 && et_password.length() < 6){
+                    Toast.makeText(signup2.this, "Su contraseña debe de tener mas de 6 caracteres", Toast.LENGTH_SHORT).show();
+                }else {
+                    registrarUser("http://192.168.50.166/users.php");
+                }
+
             }
         });
 
@@ -68,43 +96,31 @@ public class signup2 extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                if(response.equals("empty_name"))
-                {
-                    Toast.makeText(signup2.this, "Ingrese un nombre", Toast.LENGTH_SHORT).show();
-                }
-                if(response.equals("empty_password") || response.equals("pass_cannot_be_zero"))
-                {
-                    Toast.makeText(signup2.this, "Ingrese una contraseña", Toast.LENGTH_SHORT).show();
-                }
-                else if(response.equals("emtpy_contacto"))
-                {
-                    Toast.makeText(signup2.this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
-                }
-
-                else if(response.equals("register_success"))
-                {
-                    Toast.makeText(signup2.this, "Registro valido", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), login2.class);
-                    startActivity(intent);
+                if (response.isEmpty()){
+                    Toast.makeText(signup2.this, "Ocurrio un ErrorZZZ", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(signup2.this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(signup2.this, login2.class));
                     finish();
+                    
                 }
+
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(signup2.this, error.toString(), Toast.LENGTH_LONG).show();
-                String text = error.toString();
-                Log.e("error",text);
+                Toast.makeText(signup2.this, ""+error, Toast.LENGTH_SHORT).show();
+                Log.e("error",error.getMessage());
             }
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("nombre", et_name.getText().toString());
-                parametros.put("email", et_email.getText().toString());
-                parametros.put("contacto", et_phone.getText().toString());
-                parametros.put("password", et_password.getText().toString());
+                parametros.put("nombre", et_name.getText().toString().trim());
+                parametros.put("email", et_email.getText().toString().trim());
+                parametros.put("contacto", et_phone.getText().toString().trim());
+                parametros.put("pwd", et_password.getText().toString().trim());
                 return parametros;
             }
         };

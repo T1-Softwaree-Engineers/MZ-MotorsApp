@@ -20,20 +20,9 @@ public class MyPost extends AppCompatActivity {
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MyPost.this,navigation.class);
-                startActivity(i);
-                finish();
+                onBackPressed();
             }
         });
     }
 
-
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent i = new Intent(MyPost.this, navigation.class);
-        startActivity(i);
-        finish();
-    }
 }
