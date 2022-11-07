@@ -135,8 +135,8 @@ public class sell_form extends AppCompatActivity {
                 if (txtTitle.isEmpty() || txtCondition.isEmpty() || txtYear.isEmpty() || txtBrand.isEmpty() || txtModel.isEmpty() || txtFeatures.isEmpty() || txtLocation.isEmpty() ||txtPrice.isEmpty() || txtDescription.isEmpty()){
                     Toast.makeText(sell_form.this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(sell_form.this, "Lleno", Toast.LENGTH_SHORT).show();
-                    Log.e("Features", txtFeatures);
+                    //Toast.makeText(sell_form.this, "Lleno", Toast.LENGTH_SHORT).show();
+                    //Log.e("Features", txtFeatures);
                     createPost("http://192.168.50.166/publicaciones.php");
                 }
 
@@ -152,12 +152,12 @@ public class sell_form extends AppCompatActivity {
             public void onResponse(String response) {
                 if (response.isEmpty()){
                     Toast.makeText(sell_form.this, "Ocurrio un ErrorZZZ", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(sell_form.this, ""+response, Toast.LENGTH_SHORT).show();
-                    Log.e("Respuesta: ", response);
+                    //Toast.makeText(sell_form.this, ""+response, Toast.LENGTH_SHORT).show();
+                    //Log.e("Respuesta: ", response);
                 }else {
                     Toast.makeText(sell_form.this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(sell_form.this, ""+response, Toast.LENGTH_SHORT).show();
-                    Log.e("Respuesta: ", response);
+                    //Toast.makeText(sell_form.this, ""+response, Toast.LENGTH_SHORT).show();
+                    //Log.e("Respuesta: ", response);
                 }
 
             }
