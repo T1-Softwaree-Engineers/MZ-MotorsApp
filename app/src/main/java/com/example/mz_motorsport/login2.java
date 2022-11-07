@@ -74,7 +74,7 @@ public class login2 extends AppCompatActivity {
                 }else if (password.isEmpty()){
                     Toast.makeText(login2.this, "Ingrese su contraseña", Toast.LENGTH_SHORT).show();
                 }else{
-                    loginUser("http://192.168.50.166/APP/validation.php");
+                    loginUser("http://localhost/MZMOTORS-ADMIN-APP/ANDROID_SERVER_CONFIG_PHP/user.php");
                 }
 
             }
