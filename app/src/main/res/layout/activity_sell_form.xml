@@ -93,7 +93,7 @@
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/rbtn_new"
+                            android:id="@+id/rb_new"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
@@ -102,7 +102,7 @@
                         </RadioButton>
 
                         <RadioButton
-                            android:id="@+id/rbtn_used"
+                            android:id="@+id/rb_used"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
@@ -141,7 +141,8 @@
                             android:background="@drawable/custom_input"
                             android:hint="Enter year"
                             android:textSize="12dp"
-                            android:fontFamily="@font/poppins"></EditText>
+                            android:fontFamily="@font/poppins"
+                            android:inputType="number"></EditText>
                     </RelativeLayout>
                 </RelativeLayout>
             </LinearLayout>
@@ -264,7 +265,7 @@
                                 android:orientation="horizontal">
 
                                 <CheckBox
-                                    android:id="@+id/feature_bluetooth"
+                                    android:id="@+id/cb1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
@@ -273,7 +274,7 @@
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_AC"
+                                    android:id="@+id/cb2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
@@ -282,7 +283,7 @@
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_Alarma"
+                                    android:id="@+id/cb3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
@@ -291,7 +292,7 @@
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_AppleAndroind"
+                                    android:id="@+id/cb4"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
@@ -300,7 +301,7 @@
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_frenosABS"
+                                    android:id="@+id/cb5"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
@@ -309,7 +310,7 @@
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_CamaraReversa"
+                                    android:id="@+id/cb6"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
@@ -318,7 +319,7 @@
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_Sensores"
+                                    android:id="@+id/cb7"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
@@ -327,14 +328,14 @@
                                 </CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_bolsas_aire"
+                                    android:id="@+id/cb8"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
                                     android:text="Bolsas de Aire"></CheckBox>
 
                                 <CheckBox
-                                    android:id="@+id/feature_electrico"
+                                    android:id="@+id/cb9"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins"
@@ -406,12 +407,13 @@
                         android:id="@+id/PricePost"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:paddingLeft="10dp"
-                        android:background="@drawable/custom_input"
-                        android:hint="Enter price"
-                        android:textSize="12dp"
                         android:layout_below="@id/txtprice"
-                        android:fontFamily="@font/poppins"></EditText>
+                        android:background="@drawable/custom_input"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Enter price"
+                        android:paddingLeft="10dp"
+                        android:textSize="12dp"
+                        android:inputType="numberDecimal"></EditText>
 
                 </RelativeLayout>
 

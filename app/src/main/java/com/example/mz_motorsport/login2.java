@@ -20,6 +20,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -29,6 +30,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -71,10 +73,10 @@ public class login2 extends AppCompatActivity {
                 password = et_password.getText().toString();
                 if (email.isEmpty()){
                     Toast.makeText(login2.this, "Ingrese su correo", Toast.LENGTH_SHORT).show();
-                }else if (password.isEmpty()){
+                }else if(password.isEmpty()){
                     Toast.makeText(login2.this, "Ingrese su contraseña", Toast.LENGTH_SHORT).show();
                 }else{
-                    loginUser("http://192.168.50.166/APP/validation.php");
+                    loginUser("http://192.168.50.166/users.php?email="+email+"&pwd="+password);
                 }
 
             }
@@ -83,67 +85,41 @@ public class login2 extends AppCompatActivity {
 
     }
 
-    private void loginUser(String URL)
-    {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+    private void loginUser(String URL) {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL ,new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(String response) {
-
-                if (!response.isEmpty()){
-                    guardarSession(email, password);
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                try {
+                    jsonObject = response.getJSONObject(0);
+                    String uName = jsonObject.getString("nombre");
+                    String uEmail = jsonObject.getString("email");
+                    String uPhone = jsonObject.getString("contacto");
+                    Toast.makeText(login2.this, "Inicio Exitoso", Toast.LENGTH_SHORT).show();
+                    guardarSession(uName,uEmail,uPhone);
                     startActivity(new Intent(login2.this, navigation.class));
                     finish();
-                }else{
-                    Toast.makeText(login2.this, "Usuario o Contraseña incorrectas", Toast.LENGTH_SHORT).show();
+                }catch (JSONException e){
+                    Toast.makeText(login2.this, "Usuario o Contraseña Incorrecta", Toast.LENGTH_SHORT).show();
                 }
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(login2.this, error.toString(), Toast.LENGTH_LONG).show();
-
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("email", email);
-                parametros.put("password", password);
-                return parametros;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-
-        /*-----------------------------------------------------------------------------------------------------------
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, null ,new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-
-                String test = response.toString();
-                Log.e("Erro: ", test);
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(login2.this, error.toString(), Toast.LENGTH_LONG).show();
-
             }
         });
         RequestQueue requestQueue2 = Volley.newRequestQueue(this);
-        requestQueue2.add(jsonObjectRequest);*/
+        requestQueue2.add(jsonArrayRequest);
+
     }
 
-    private void guardarSession(String uEmail, String uPassword) {
+    private void guardarSession(String uName, String uEmail, String uPhone) {
         SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=datosU.edit();
+        editor.putString("nombre",uName);
         editor.putString("email",uEmail);
-        editor.putString("password",uPassword);
+        editor.putString("phone",uPhone);
         editor.putBoolean("session",true);
         editor.commit();
     }

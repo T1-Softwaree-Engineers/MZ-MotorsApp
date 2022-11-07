@@ -37,7 +37,7 @@ public class person extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(),sell_form.class);
                 startActivity(i);
-                getActivity().finish();
+
             }
         });
 
@@ -46,7 +46,7 @@ public class person extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),MyPost.class);
                 startActivity(i);
-                getActivity().finish();
+
             }
         });
 
@@ -55,7 +55,6 @@ public class person extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),Profile.class);
                 startActivity(i);
-                getActivity().finish();
             }
         });
 
