@@ -216,11 +216,11 @@
                 <Button
                     android:id="@+id/btn_interested"
                     android:layout_width="366dp"
-                    android:layout_below="@+id/info_secundaria"
-                    android:layout_marginTop="50dp"
                     android:layout_height="64dp"
+                    android:layout_below="@+id/info_secundaria"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
                     android:backgroundTint="#0066CC"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="IM INTERESTED"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF0000"
+    android:background="#F9FAFB"
     tools:context=".MyPost"> <!--#F9FAFB-->
 
 
@@ -49,83 +49,15 @@
 
     </RelativeLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/post_container"
-        android:background="@drawable/layout_bg"
+    <!--Fin de la barra de navegacion-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listRecycleView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/topbar"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        >
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/topbar"/>
+    
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/container_title"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
-
-            <TextView
-                android:id="@+id/txtFechaPost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fecha"
-                android:textSize="20dp"
-                android:fontFamily="@font/poppins">
-
-            </TextView>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/container_post"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/container_title"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            >
-
-            <ImageView
-                android:id="@+id/carro"
-                android:layout_width="169dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/mercedes" />
-
-            <TextView
-                android:id="@+id/txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="61dp"
-                android:layout_marginTop="35dp"
-                android:layout_toRightOf="@+id/carro"
-                android:fontFamily="@font/poppins"
-                android:gravity="center"
-                android:text="Suzuki Swift"
-                android:textColor="#262626"
-                android:textSize="15dp" />
-
-            <TextView
-                android:id="@+id/txt1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txt"
-                android:layout_marginLeft="50dp"
-                android:layout_toRightOf="@+id/carro"
-                android:fontFamily="@font/poppins"
-                android:gravity="center"
-                android:text="Price: $300,000.00"
-                android:textColor="#262626"
-                android:textSize="15dp" />
-        </RelativeLayout>
-
-
-    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
