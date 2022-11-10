@@ -2,68 +2,73 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#F9FAFB"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:id="@+id/ContainerMyPost"
+        android:layout_margin="5dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/MyFoto_titlePost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#F9FAFB"
             app:cardElevation="0dp"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground">
-        <RelativeLayout
-            android:id="@+id/MyFoto_titlePostContainer"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_img"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                app:cardCornerRadius="20dp">
-                <ImageView
-                    android:id="@+id/img_MyCarPostContainer"
-                    android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/MyFoto_titlePostContainer"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_img"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    app:cardCornerRadius="20dp">
+                    <ImageView
+                        android:id="@+id/img_MyCarPostContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/aveo"
+                        android:scaleType="centerCrop"/>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/MyTitle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/aveo"
-                    android:scaleType="centerCrop"/>
-            </androidx.cardview.widget.CardView>
+                    android:layout_below="@+id/card_img"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="Suzuki Swift"
+                    android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/MyTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/card_img"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins_bold"
-                android:gravity="center"
-                android:text="Suzuki Swift"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/MyPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/MyTitle"
-                android:text="Price: $300,000"
-                android:textSize="12dp"
-                android:fontFamily="@font/poppins"
-                android:alpha="0.5"
-                android:gravity="center"/>
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/MyPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/MyTitle"
+                    android:text="Price: $300,000"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:alpha="0.5"
+                    android:gravity="center"/>
+            </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
         <RelativeLayout
-            android:id="@+id/MyInformationPost"
-            android:layout_width="230dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/MyFoto_titlePost">
-
+            android:id="@+id/containerdelete">
             <ImageView
                 android:id="@+id/DeleteMyPost"
                 android:layout_width="24dp"
@@ -72,60 +77,71 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/containerdelete"
+            android:layout_toRightOf="@+id/MyFoto_titlePost">
+
+            <LinearLayout
+                android:id="@+id/MyInformationPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/txtAutorizada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="left"
+                    android:text="Authorization">
+
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/Autorizada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_baseline_access_time_filled_24" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/txtAutorizada"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/DeleteMyPost"
-                android:layout_marginTop="8dp"
-                android:text="Autorizada"
+                android:id="@+id/vendido"
+                android:textColor="#E80000"
                 android:fontFamily="@font/poppins_bold"
-                android:gravity="center"/>
-            <ImageView
-                android:id="@+id/Autorizada"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_below="@+id/txtAutorizada"
+                android:text=""
+                android:layout_below="@+id/MyInformationPost"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/borrar"/>
-            
-            <TextView
-                android:id="@+id/txtVendida"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/Autorizada"
-                android:layout_marginTop="20dp"
-                android:text="Vendida"
-                android:fontFamily="@font/poppins_bold"
-                android:gravity="center"/>
-            <ImageView
-                android:id="@+id/Vendida"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_below="@+id/txtVendida"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/borrar"/>
+                android:layout_marginTop="30dp">
+
+            </TextView>
 
             <Button
                 android:id="@+id/MarcarVendida"
                 android:layout_width="140dp"
                 android:layout_height="35dp"
-                android:layout_below="@+id/Vendida"
+                android:layout_below="@+id/vendido"
+                android:layout_marginTop="30dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:text="Marcar como vendido"
-                android:textSize="8dp"/>
-
+                android:text="Mark a Sold"
+                android:textSize="10dp"/>
         </RelativeLayout>
 
-    <View
-        android:layout_width="380dp"
-        android:layout_height="1dp"
-        android:layout_below="@+id/MyFoto_titlePost"
-        android:layout_centerHorizontal="true"
-        android:background="#D5D3D3"
-        android:layout_marginTop="15dp"
-        />
+
+
+
+    </RelativeLayout>
+
+
 
 </RelativeLayout>

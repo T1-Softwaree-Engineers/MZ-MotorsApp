@@ -47,7 +47,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             super(itemView);
             imgCar = itemView.findViewById(R.id.img_MyCarPostContainer);
             imgAutorizada = itemView.findViewById(R.id.Autorizada);
-            imgVendida = itemView.findViewById(R.id.Vendida);
             delete = itemView.findViewById(R.id.DeleteMyPost);
             title = itemView.findViewById(R.id.MyTitle);
             price = itemView.findViewById(R.id.MyPrice);
