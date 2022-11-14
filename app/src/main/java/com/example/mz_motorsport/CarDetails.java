@@ -66,16 +66,14 @@ public class CarDetails extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(CarDetails.this,car_details_extra.class);
                 startActivity(i);
-                finish();
+
             }
         });
 
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(CarDetails.this,navigation.class);
-                startActivity(i);
-                finish();
+                onBackPressed();
             }
         });
 
@@ -114,8 +112,7 @@ public class CarDetails extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(CarDetails.this, navigation.class));
-        finish();
+        return;
     }
 
 

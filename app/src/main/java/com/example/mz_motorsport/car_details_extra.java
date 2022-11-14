@@ -9,14 +9,14 @@ import android.widget.ImageView;
 
 public class car_details_extra extends AppCompatActivity {
 
-    ImageView atras;
+    //ImageView atras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_details_extra);
 
-        atras = (ImageView)findViewById(R.id.flecha_atras);
+        /*atras = (ImageView)findViewById(R.id.flecha_atras);
 
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +25,7 @@ public class car_details_extra extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        });
+        });*/
     }
 
 
@@ -33,8 +33,7 @@ public class car_details_extra extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent i = new Intent(car_details_extra.this, CarDetails.class);
-        startActivity(i);
-        finish();
+        return;
+
     }
 }

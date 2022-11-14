@@ -11,13 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/topbar">
 
-        <ImageView
-            android:id="@+id/flecha_atras"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/flecha" />
+
 
 
         <TextView
@@ -33,6 +27,7 @@
 
     </RelativeLayout>
 
+
     <TableLayout
         android:id="@+id/tableDetails"
         android:layout_width="match_parent"
@@ -40,7 +35,6 @@
         android:layout_below="@+id/topbar"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-
         android:layout_marginTop="30dp">
 
         <TableRow>
@@ -266,7 +260,6 @@
         </RelativeLayout>
 
     </LinearLayout>
-    <!--Feature2-->
 
 
     <RelativeLayout
@@ -301,8 +294,7 @@
             android:fontFamily="@font/poppins">
 
         </TextView>
-
-
     </RelativeLayout>
+
 
 </RelativeLayout>

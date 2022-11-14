@@ -459,9 +459,16 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/container_post_5"
+                android:id="@+id/container_btn_uploadImages"
                 android:layout_margin="10dp"
                 android:layout_below="@+id/container_post_4">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/ic_baseline_add_a_photo_24"
+                    android:layout_toLeftOf="@+id/txtimg"
+                    android:layout_marginRight="10dp"/>
 
                 <TextView
                     android:id="@+id/txtimg"
@@ -476,9 +483,16 @@
                 </TextView>
             </RelativeLayout>
 
+            <ImageView
+                android:id="@+id/imgPubli"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/container_btn_uploadImages"/>
+
             <RelativeLayout
                 android:id="@+id/container_post_6"
-                android:layout_below="@+id/container_post_5"
+                android:layout_below="@+id/imgPubli"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp">

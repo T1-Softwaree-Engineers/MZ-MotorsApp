@@ -1,19 +1,27 @@
 package com.example.mz_motorsport;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.InputFilter;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -24,25 +32,39 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class sell_form extends AppCompatActivity {
 
-    ImageView atras;
+    RelativeLayout uploadImages;
+    ImageView atras, imgPubli;
+    GridView gvImagenes;
+    Uri imagenUri;
     EditText title, year, brand, model, location, price, description;
     RadioButton rbNew, rbUsed;
     CheckBox cb1,cb2,cb3,cb4,cb5,cb6,cb7,cb8,cb9,cb10;
     //CheckBox ChBoxS[] = {cb1, };
     Button btnSell;
     String txtTitle, txtCondition="", txtYear, txtBrand, txtModel, txtFeatures, txtLocation, txtPrice, txtDescription;
+    Bitmap bitmap;
+    int PICK_IMAGE_REQUEST = 5;
+
+    List<Uri> listaImagenes = new ArrayList<>();
+    GridViewAdapter baseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell_form);
 
+        uploadImages = (RelativeLayout)findViewById(R.id.container_btn_uploadImages);
         atras = (ImageView)findViewById(R.id.flecha_atras);
+        imgPubli = (ImageView)findViewById(R.id.imgPubli);
         title = (EditText)findViewById(R.id.TitlePost);
         title.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
         year = (EditText)findViewById(R.id.YearPost);
@@ -79,7 +101,17 @@ public class sell_form extends AppCompatActivity {
 
         });
 
+        //------------Images-----------------
 
+        uploadImages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showFileChooser();
+            }
+        });
+
+
+        //---------------------------------------
         btnSell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -181,7 +213,9 @@ public class sell_form extends AppCompatActivity {
                 Map<String, String> parametros = new HashMap<String, String>();
                 SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
                 String uEmail = datosU.getString("email", "");
+                String imagen = getStringImagen(bitmap);
                 parametros.put("Email", uEmail);
+                parametros.put("Foto", imagen);
                 parametros.put("Title", txtTitle);
                 parametros.put("Condition", txtCondition);
                 parametros.put("Year", txtYear);
@@ -197,5 +231,55 @@ public class sell_form extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
+    }
+
+
+    public String getStringImagen(Bitmap bmp) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
+    }
+
+
+    private void showFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Selecciona imagen"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        /*ClipData clipData = data.getClipData();
+
+        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE_REQUEST) {
+            //PARA CUANDO SE SELECCIONA UNA IMAGEN
+            if(clipData == null){
+                imagenUri = data.getData();
+                listaImagenes.add(imagenUri);
+            }
+        }else {
+            //PARA CUANDO SE SELECCIONAN VARIAS IMAGENES
+            for (int i=0; i<clipData.getItemCount(); i++){
+                listaImagenes.add(clipData.getItemAt(i).getUri());
+            }
+        }
+
+        baseAdapter = new GridViewAdapter(sell_form.this, listaImagenes);
+        gvImagenes.setAdapter(baseAdapter);*/
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri filePath = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                imgPubli.setImageBitmap(bitmap);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 }

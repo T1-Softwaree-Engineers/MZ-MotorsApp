@@ -1,5 +1,7 @@
 package com.example.mz_motorsport;
 
+import android.graphics.Bitmap;
+
 public class MyPostElement {
     public String imgCar;
     public String title;

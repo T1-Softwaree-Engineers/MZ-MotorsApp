@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
@@ -53,8 +55,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         }
 
         void bindData(final MyPostElement item) {
+            Picasso.get().load(item.getImgCar()).error(R.mipmap.ic_launcher_round).into(imgCar);
             title.setText(item.getTitle());
-            price.setText(item.getPrice());
+            price.setText("$ "+item.getPrice());
         }
     }
 

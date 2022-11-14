@@ -15,221 +15,214 @@
         android:src="@drawable/flecha" />
 
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/flecha_atras">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_img_car"
+            android:layout_width="366dp"
+            android:layout_height="360dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="20dp">
             <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-                 android:layout_width="match_parent"
-                 android:layout_height="200dp"
-                 android:id="@+id/img_car"
-                 app:carouselType="BLOCK"
-                 app:cardCornerRadius="50dp"
-                 android:layout_marginLeft="15dp"
-                 android:layout_marginRight="15dp"
-                 app:showBottomShadow="false"
-                 app:showTopShadow="false"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/img_car"
+                app:carouselType="BLOCK"
+                app:showBottomShadow="false"
+                app:showTopShadow="false"/>
+        </androidx.cardview.widget.CardView>
 
-
-
-
-    <RelativeLayout
-                android:id="@+id/info_principal"
-                android:layout_width="366dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/img_car"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:id="@+id/name_car"
-                    android:layout_width="match_parent"
-                    android:layout_height="33dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="Tesla Model 3"
-                    android:textSize="22dp"/>
-
-                <TextView
-                    android:id="@+id/price_car"
-                    android:layout_width="match_parent"
-                    android:layout_height="21dp"
-                    android:layout_below="@+id/name_car"
-                    android:fontFamily="@font/poppins"
-                    android:text="$1,000,000.00"
-                    android:textSize="14dp"
-                    android:alpha="0.5"/>
-            </RelativeLayout>
-
+    
+        <RelativeLayout
+            android:id="@+id/info_principal"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_img_car"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
 
             <TextView
-                android:id="@+id/description"
-                android:layout_width="366dp"
-                android:layout_height="93dp"
-                android:layout_below="@+id/info_principal"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/poppins"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas diam nam eu nulla a. Vestibulum aliquet facilisi interdum nibh blandit"
-                android:textSize="16dp" />
-
-
-            <!--Contenedor de Features-->
-            <LinearLayout
-                android:id="@+id/features"
+                android:id="@+id/name_car"
                 android:layout_width="match_parent"
-                android:layout_height="28dp"
-                android:layout_below="@+id/description"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_height="33dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Tesla Model 3"
+                android:textSize="22dp"/>
 
-                <!--Feature1-->
-                <RelativeLayout
-                    android:id="@+id/feature_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="28dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/bg_features">
-
-                    <ImageView
-                        android:id="@+id/checkbox"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:src="@drawable/check_box" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="28dp"
-                        android:layout_alignLeft="@+id/checkbox"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Autopilot"
-                        android:textColor="@color/white"
-                        android:textSize="18dp" />
-                </RelativeLayout>
-
-                <!--Feature2-->
-                <RelativeLayout
-                    android:id="@+id/feature_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="28dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/bg_features">
-
-                    <ImageView
-                        android:id="@+id/checkbox2"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:src="@drawable/check_box" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="28dp"
-                        android:layout_alignLeft="@+id/checkbox2"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="360° Camera"
-                        android:textColor="@color/white"
-                        android:textSize="18dp" />
-                </RelativeLayout>
-
-                <!--See All-->
-                <TextView
-                    android:id="@+id/seeAll"
-                    android:layout_width="65dp"
-                    android:layout_height="23dp"
-                    android:alpha="0.5"
-                    android:fontFamily="@font/poppins"
-                    android:text="See All"
-                    android:textAlignment="center"
-                    android:textSize="15dp" />
-            </LinearLayout>
-
-
-            <!--Contenedor Informacion Secundaria-->
-            <LinearLayout
-                android:id="@+id/info_secundaria"
-                android:layout_width="366dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/features"
-                android:layout_marginTop="44dp"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
-
-                <!--Contenedor infoSec 1-->
-                <RelativeLayout
-                    android:layout_width="183dp"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/location"/>
-
-                    <TextView
-                        android:id="@+id/location"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="25dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="Manzanillo, col"
-                        android:textColor="@color/black"
-                        android:textSize="12dp" />
-                </RelativeLayout>
-
-                <!--Contenedor infoSec 2-->
-                <RelativeLayout
-                    android:layout_width="183dp"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/carro"/>
-
-                    <TextView
-                        android:id="@+id/carDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="25dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="Car Details (Year, Model)"
-                        android:textSize="12dp"
-                        android:textColor="@color/black"/>
-                </RelativeLayout>
-
-            </LinearLayout>
-
-                <Button
-                    android:id="@+id/btn_interested"
-                    android:layout_width="366dp"
-                    android:layout_height="64dp"
-                    android:layout_below="@+id/info_secundaria"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="50dp"
-                    android:backgroundTint="#0066CC"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="IM INTERESTED"
-                    android:textSize="18dp"
-                    app:cornerRadius="10dp" />
-
+            <TextView
+                android:id="@+id/price_car"
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:layout_below="@+id/name_car"
+                android:fontFamily="@font/poppins"
+                android:text="$1,000,000.00"
+                android:textSize="14dp"
+                android:alpha="0.5"/>
         </RelativeLayout>
 
-    </ScrollView>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="366dp"
+            android:layout_height="93dp"
+            android:layout_below="@+id/info_principal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas diam nam eu nulla a. Vestibulum aliquet facilisi interdum nibh blandit"
+            android:textSize="16dp" />
+
+
+        <!--Contenedor de Features-->
+        <LinearLayout
+            android:id="@+id/features"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_below="@+id/description"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--Feature1-->
+            <RelativeLayout
+                android:id="@+id/feature_1"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bg_features">
+
+                <ImageView
+                    android:id="@+id/checkbox"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/check_box" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_alignLeft="@+id/checkbox"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Autopilot"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+
+            <!--Feature2-->
+            <RelativeLayout
+                android:id="@+id/feature_2"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/bg_features">
+
+                <ImageView
+                    android:id="@+id/checkbox2"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/check_box" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_alignLeft="@+id/checkbox2"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="360° Camera"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+
+            <!--See All-->
+            <TextView
+                android:id="@+id/seeAll"
+                android:layout_width="65dp"
+                android:layout_height="23dp"
+                android:alpha="0.5"
+                android:fontFamily="@font/poppins"
+                android:text="See All"
+                android:textAlignment="center"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+
+        <!--Contenedor Informacion Secundaria-->
+        <LinearLayout
+            android:id="@+id/info_secundaria"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/features"
+            android:layout_marginTop="44dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <!--Contenedor infoSec 1-->
+            <RelativeLayout
+                android:layout_width="183dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/location"/>
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Manzanillo, col"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+            </RelativeLayout>
+
+            <!--Contenedor infoSec 2-->
+            <RelativeLayout
+                android:layout_width="183dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/carro"/>
+
+                <TextView
+                    android:id="@+id/carDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Car Details (Year, Model)"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_interested"
+            android:layout_width="366dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#0066CC"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="IM INTERESTED"
+            android:textSize="18dp"
+            app:cornerRadius="10dp" />
+    </RelativeLayout>
 
 
 

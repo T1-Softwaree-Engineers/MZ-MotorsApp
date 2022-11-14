@@ -78,7 +78,6 @@ public class home extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(),CarDetails.class);
                 startActivity(i);
-                getActivity().finish();
             }
         });
 
