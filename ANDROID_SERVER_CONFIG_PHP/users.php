@@ -24,6 +24,18 @@
 	  echo json_encode($data);
 	}*/
 
+
+	/*if ($api == 'POST') {
+		$email = $user->test_input($_POST['email']);
+		$password = $user->test_input($_POST['pwd']);
+		$password = hash('sha512', $password);
+		if ($user->login($email, $password)) {
+		  echo $user->message('User login successfully!',false);
+		} else {
+		  echo $user->message('Failed to login !',true);
+		}
+	  }*/
+
 	if ($api == 'GET') {
 		
 		$email = $user->test_input($_GET['email']);
@@ -44,18 +56,6 @@
 			echo $user->message('Failed to add an user!',true);
 		}
 	}
-
-	/*if ($api == 'POST') {
-		$email = $user->test_input($_POST['email']);
-		$password = $user->test_input($_POST['pwd']);
-		$password = hash('sha512', $password);
-		if ($user->login($email, $password)) {
-		  echo $user->message('User login successfully!',false);
-		} else {
-		  echo $user->message('Failed to login !',true);
-		}
-	  }*/
-
     
 	if ($api == 'PUT') {
 	  parse_str(file_get_contents('php://input'), $post_input);
