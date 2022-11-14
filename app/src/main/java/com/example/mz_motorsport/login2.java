@@ -50,10 +50,10 @@ public class login2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        signup = (TextView) findViewById(R.id.login4);
-        et_username = (TextInputEditText) findViewById(R.id.et_usarname);
-        et_password = (TextInputEditText)findViewById(R.id.et_password);
-        btn_login = (Button)findViewById(R.id.btnlogin);
+        signup = findViewById(R.id.login4);
+        et_username = findViewById(R.id.et_usarname);
+        et_password = findViewById(R.id.et_password);
+        btn_login = findViewById(R.id.btnlogin);
 
 
         //Ir al SignUp
