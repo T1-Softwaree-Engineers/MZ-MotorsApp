@@ -78,6 +78,15 @@
 	    $rows = $stmt->fetchAll();
 	    return $rows;
 	  }
+
+	  public function getAllPosts() 
+	  {
+	    $sql = 'SELECT * FROM publicaciones';
+	    $stmt = $this->conn->prepare($sql);
+	    $stmt->execute();
+	    $rows = $stmt->fetchAll();
+	    return $rows;
+	  }
 	}
 
 ?>
