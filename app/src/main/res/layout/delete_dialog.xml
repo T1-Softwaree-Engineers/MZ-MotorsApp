@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/browser_actions_bg_grey"
+        app:cardCornerRadius="20dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Are you sure you want to delete this post?"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:fontFamily="@font/poppins_bold"/>
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="150dp"
+                android:layout_height="53dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#0066CC"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Confirm"
+                app:cornerRadius="30dp"/>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="150dp"
+                android:layout_height="53dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#0066CC"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="cancel"
+                app:cornerRadius="30dp"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

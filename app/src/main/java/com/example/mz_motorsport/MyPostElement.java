@@ -3,19 +3,43 @@ package com.example.mz_motorsport;
 import android.graphics.Bitmap;
 
 public class MyPostElement {
+    public String id;
     public String imgCar;
     public String title;
-    public String price;
-    public String srcAut;
-    public String srcComp;
+    public String marca;
+    public String modelo;
+    public String año;
+    public double price;
+    public String ubicacion;
+    public String features;
+    public int condicion;
+    public String descripcion;
+    public int autorizada;
+    public int vendida;
 
 
-    public MyPostElement(String imgCar, String title, String price, String srcAut, String srcComp) {
+    public MyPostElement(String id, String imgCar, String title, String marca, String modelo, String año, double price, String ubicacion, String features, int condicion, String descripcion, int autorizada, int vendida) {
+        this.id = id;
         this.imgCar = imgCar;
         this.title = title;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.año = año;
         this.price = price;
-        this.srcAut = srcAut;
-        this.srcComp = srcComp;
+        this.ubicacion = ubicacion;
+        this.features = features;
+        this.condicion = condicion;
+        this.descripcion = descripcion;
+        this.autorizada = autorizada;
+        this.vendida = vendida;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getImgCar() {
@@ -34,27 +58,83 @@ public class MyPostElement {
         this.title = title;
     }
 
-    public String getPrice() {
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getAño() {
+        return año;
+    }
+
+    public void setAño(String año) {
+        this.año = año;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getSrcAut() {
-        return srcAut;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setSrcAut(String srcAut) {
-        this.srcAut = srcAut;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
-    public String getSrcComp() {
-        return srcComp;
+    public String getFeatures() {
+        return features;
     }
 
-    public void setSrcComp(String srcComp) {
-        this.srcComp = srcComp;
+    public void setFeatures(String features) {
+        this.features = features;
+    }
+
+    public int getCondicion() {
+        return condicion;
+    }
+
+    public void setCondicion(int condicion) {
+        this.condicion = condicion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getAutorizada() {
+        return autorizada;
+    }
+
+    public void setAutorizada(int autorizada) {
+        this.autorizada = autorizada;
+    }
+
+    public int getVendida() {
+        return vendida;
+    }
+
+    public void setVendida(int vendida) {
+        this.vendida = vendida;
     }
 }

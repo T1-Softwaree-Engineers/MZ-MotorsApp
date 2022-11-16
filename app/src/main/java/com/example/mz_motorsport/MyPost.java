@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -32,7 +37,7 @@ public class MyPost extends AppCompatActivity {
 
     ImageView atras, imgP;
     List<MyPostElement> elements;
-    String globalImg = "http://192.168.50.166/uploads/thumb-1920-1083140.jpg";
+    ProgressBar pb;
 
     RequestQueue requestQueue;
 
@@ -43,6 +48,7 @@ public class MyPost extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
         atras = (ImageView) findViewById(R.id.flecha_atras);
+        pb = (ProgressBar)findViewById(R.id.progress_bar);
         //imgP = (ImageView)findViewById(R.id.imgPrueba);
 
         atras.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +60,6 @@ public class MyPost extends AppCompatActivity {
 
         SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
         String uEmail = datosU.getString("email", "???Email???");
-        Toast.makeText(this, ""+uEmail, Toast.LENGTH_SHORT).show();
         verPublicaciones("https://ochoarealestateservices.com/mzmotors/publicaciones.php?email="+uEmail);
     }
 
@@ -69,10 +74,20 @@ public class MyPost extends AppCompatActivity {
                         jsonObject = response.getJSONObject(i);
                         String pId = "" + jsonObject.getInt("id_post");
                         String pTitle = jsonObject.getString("titulo");
-                        String pPrice = "" + jsonObject.getDouble("precio");
+                        double pPrice = jsonObject.getDouble("precio");
                         String pFoto = jsonObject.getString("photos");
+                        String pMarca = jsonObject.getString("marca");
+                        String pModelo = jsonObject.getString("modelo");
+                        String pAño = jsonObject.getString("año");
+                        Double pPrecio = jsonObject.getDouble("precio");
+                        String pUbicacion = jsonObject.getString("ubicacion");
+                        String pFeatures = jsonObject.getString("features");
+                        int pCondicion = jsonObject.getInt("condicion");
+                        String pDescripcion = jsonObject.getString("descripcion");
+                        int pAutorizada = jsonObject.getInt("autorizada");
+                        int pVendida = jsonObject.getInt("vendida");
 
-                        elements.add(new MyPostElement(pFoto, pTitle, pPrice, "abcva", "23352"));
+                        elements.add(new MyPostElement(pId, pFoto, pTitle, pMarca, pModelo, pAño, pPrice, pUbicacion, pFeatures, pCondicion, pDescripcion, pAutorizada, pVendida));
                     }
                     init();
                 } catch (JSONException e) {
@@ -92,11 +107,13 @@ public class MyPost extends AppCompatActivity {
 
     public void init(){
         //elements.add(new MyPostElement("sbe", "Pontiac", "$ 135,324.00", "abcva", "23352"));
+        pb.setVisibility(View.GONE);
         ListAdapter listAdapter = new ListAdapter(elements, this);
         RecyclerView recyclerView = findViewById(R.id.listRecycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
     }
+
 
 }
