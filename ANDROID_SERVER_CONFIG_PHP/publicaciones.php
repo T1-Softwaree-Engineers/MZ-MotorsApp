@@ -11,6 +11,7 @@
 
 
 	$api = $_SERVER['REQUEST_METHOD'];
+	$option_query = $_GET['option'];
 
 	/*$id = intval($_GET['id'] ?? '');
 
@@ -24,11 +25,17 @@
 	  echo json_encode($data);
 	}*/
 
-	if ($api == 'GET') {
-		
+	if ($api === 'GET' && $option_query === 'unique' && isset($_GET['email']))
+	{
 		$email = $post->test_input($_GET['email']);
 		echo json_encode($post->getPublicaciones($email));
 	}
+
+	if($api === 'GET' && $option_query === 'all')
+	{
+		echo json_encode($post->getAllPosts());
+	}
+
 
 	if ($api == 'POST') {
 		$email = $post->test_input($_POST['Email']);

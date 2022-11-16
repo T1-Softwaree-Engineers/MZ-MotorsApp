@@ -10,8 +10,8 @@
 	$admin = new Database();
 
 	$api = $_SERVER['REQUEST_METHOD']; // Detects the type of API requests
-	$op_key = $_GET['key']; // OP Key helps to prevent fake or unauthorized requests
-	
+	$op_key = $admin->test_input($_GET['key']); // OP Key helps to prevent fake or unauthorized requests
+
 	if ($api == 'GET') // Get method helps to login, needs email, pwd and Admin API keylog
 	{
 		if ($op_key === '9137462850') // verify login key is correct
