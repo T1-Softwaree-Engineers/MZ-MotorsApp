@@ -165,6 +165,23 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check own privacity polices and Terms and conditions"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins"
+                android:textSize="13dp"
+                android:layout_marginBottom="10dp">
+            </TextView>
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
 
