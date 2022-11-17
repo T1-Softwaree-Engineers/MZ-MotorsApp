@@ -3,13 +3,17 @@ package com.example.mz_motorsport;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.provider.MediaStore;
 import android.text.InputFilter;
 import android.util.Base64;
@@ -22,6 +26,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -52,6 +57,7 @@ public class sell_form extends AppCompatActivity {
     Button btnSell;
     String txtTitle, txtCondition="", txtYear, txtBrand, txtModel, txtFeatures, txtLocation, txtPrice, txtDescription;
     Bitmap bitmap;
+    Dialog d_contact;
     int PICK_IMAGE_REQUEST = 5;
 
     List<Uri> listaImagenes = new ArrayList<>();
@@ -91,6 +97,7 @@ public class sell_form extends AppCompatActivity {
         cb9 = (CheckBox)findViewById(R.id.cb9);
 
         btnSell = (Button)findViewById(R.id.btnSell);
+        d_contact = new Dialog(this);
 
 
         atras.setOnClickListener(new View.OnClickListener() {
@@ -177,6 +184,7 @@ public class sell_form extends AppCompatActivity {
                     //Toast.makeText(sell_form.this, "Lleno", Toast.LENGTH_SHORT).show();
                     //Log.e("Features", txtFeatures);
                     createPost("https://ochoarealestateservices.com/mzmotors/publicaciones.php");
+                    btnSell.setEnabled(false);
                 }
 
 
@@ -186,6 +194,7 @@ public class sell_form extends AppCompatActivity {
 
 
     public void createPost(String URL){
+        openDialogLoad();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -194,9 +203,20 @@ public class sell_form extends AppCompatActivity {
                     //Toast.makeText(sell_form.this, ""+response, Toast.LENGTH_SHORT).show();
                     //Log.e("Respuesta: ", response);
                 }else {
-                    Toast.makeText(sell_form.this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
-                    //Toast.makeText(sell_form.this, ""+response, Toast.LENGTH_SHORT).show();
-                    //Log.e("Respuesta: ", response);
+                    d_contact.dismiss();
+                    openDialogSucces();
+                    CountDownTimer countDownTimer = new CountDownTimer(2000, 1000) {
+                        @Override
+                        public void onTick(long l) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            d_contact.dismiss();
+                            onBackPressed();
+                        }
+                    }.start();
                 }
 
             }
@@ -281,5 +301,22 @@ public class sell_form extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void openDialogLoad() {
+        d_contact.setContentView(R.layout.load_dialog);
+        d_contact.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        d_contact.show();
+        d_contact.setCanceledOnTouchOutside(false);
+    }
+
+    private void openDialogSucces() {
+        d_contact.setContentView(R.layout.succes_dialog);
+        d_contact.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        d_contact.show();
+        d_contact.setCanceledOnTouchOutside(false);
+
+        TextView txtMensaje = d_contact.findViewById(R.id.txt1);
+        txtMensaje.setText("Upload Success");
     }
 }
