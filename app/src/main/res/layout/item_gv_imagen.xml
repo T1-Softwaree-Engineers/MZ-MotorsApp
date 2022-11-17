@@ -7,15 +7,16 @@
     <ImageView
         android:id="@+id/ivImagen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="80dp"
         android:scaleType="centerCrop"/>
 
     <ImageView
         android:id="@+id/ivBtnEliminar"
+
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:src="@drawable/ic_baseline_delete_24"/>
+        android:layout_marginLeft="370dp"
+        android:src="@drawable/ic_baseline_close_24"/>
 
 </RelativeLayout>

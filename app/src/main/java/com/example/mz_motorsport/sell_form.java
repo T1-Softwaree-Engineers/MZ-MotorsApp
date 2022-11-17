@@ -28,7 +28,7 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.graphics.BitmapFactory;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,7 +36,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
+import java.io.InputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,8 +47,8 @@ import java.util.Map;
 public class sell_form extends AppCompatActivity {
 
     RelativeLayout uploadImages;
-    ImageView atras, imgPubli;
-    GridView gvImagenes;
+    ImageView atras;
+    GridView imgPubli;
     Uri imagenUri;
     EditText title, year, brand, model, location, price, description;
     RadioButton rbNew, rbUsed;
@@ -61,7 +61,9 @@ public class sell_form extends AppCompatActivity {
     int PICK_IMAGE_REQUEST = 5;
 
     List<Uri> listaImagenes = new ArrayList<>();
+    List<String> listaBase64Imagenes = new ArrayList<>();
     GridViewAdapter baseAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,7 @@ public class sell_form extends AppCompatActivity {
 
         uploadImages = (RelativeLayout)findViewById(R.id.container_btn_uploadImages);
         atras = (ImageView)findViewById(R.id.flecha_atras);
-        imgPubli = (ImageView)findViewById(R.id.imgPubli);
+        imgPubli = (GridView) findViewById(R.id.imgPubli);
         title = (EditText)findViewById(R.id.TitlePost);
         title.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
         year = (EditText)findViewById(R.id.YearPost);
@@ -183,7 +185,20 @@ public class sell_form extends AppCompatActivity {
                 }else {
                     //Toast.makeText(sell_form.this, "Lleno", Toast.LENGTH_SHORT).show();
                     //Log.e("Features", txtFeatures);
-                    createPost("https://ochoarealestateservices.com/mzmotors/publicaciones.php");
+                    listaBase64Imagenes.clear();
+                    for (int i = 0; i < listaImagenes.size(); i++){
+                        try{
+                            InputStream is = getContentResolver().openInputStream(listaImagenes.get(i));
+                            Bitmap bitmap = BitmapFactory.decodeStream(is);
+
+                            String cadena = convertirUtiToBase64(bitmap);
+                            createPost("nomImg" + 1, cadena, "https://ochoarealestateservices.com/mzmotors/publicaciones.php");
+                            bitmap.recycle();
+
+                        }catch (IOException e){
+
+                        }
+                    }
                     btnSell.setEnabled(false);
                 }
 
@@ -192,8 +207,17 @@ public class sell_form extends AppCompatActivity {
         });
     }
 
+    public String convertirUtiToBase64(Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] bytes = baos.toByteArray();
+        String encode = Base64.encodeToString(bytes, Base64.DEFAULT);
 
-    public void createPost(String URL){
+        return encode;
+    }
+
+
+    public void createPost(final String nombre, final String cadena, final String URL){
         openDialogLoad();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -233,9 +257,9 @@ public class sell_form extends AppCompatActivity {
                 Map<String, String> parametros = new HashMap<String, String>();
                 SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
                 String uEmail = datosU.getString("email", "");
-                String imagen = getStringImagen(bitmap);
+                //String imagen = getStringImagen(bitmap);
                 parametros.put("Email", uEmail);
-                parametros.put("Foto", imagen);
+                parametros.put("Foto", cadena);
                 parametros.put("Title", txtTitle);
                 parametros.put("Condition", txtCondition);
                 parametros.put("Year", txtYear);
@@ -245,6 +269,8 @@ public class sell_form extends AppCompatActivity {
                 parametros.put("Location", txtLocation);
                 parametros.put("Price", txtPrice);
                 parametros.put("Description", txtDescription);
+                parametros.put("nom", nombre);
+
                 return parametros;
             }
         };
@@ -266,6 +292,7 @@ public class sell_form extends AppCompatActivity {
     private void showFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Selecciona imagen"), PICK_IMAGE_REQUEST);
     }
@@ -274,7 +301,7 @@ public class sell_form extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        /*ClipData clipData = data.getClipData();
+        ClipData clipData = data.getClipData();
 
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE_REQUEST) {
             //PARA CUANDO SE SELECCIONA UNA IMAGEN
@@ -290,17 +317,8 @@ public class sell_form extends AppCompatActivity {
         }
 
         baseAdapter = new GridViewAdapter(sell_form.this, listaImagenes);
-        gvImagenes.setAdapter(baseAdapter);*/
+        imgPubli.setAdapter(baseAdapter);
 
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri filePath = data.getData();
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                imgPubli.setImageBitmap(bitmap);
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        }
     }
 
     private void openDialogLoad() {

@@ -242,113 +242,113 @@
                 </TextView>
             </RelativeLayout>
 
-                <LinearLayout
-                    android:id="@+id/linea_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/container_features">
+            <LinearLayout
+                android:id="@+id/linea_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/container_features">
 
-                    <HorizontalScrollView
-                        android:id="@+id/horizontalScrollView"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_below="@id/txtFeatures"
-                        android:layout_margin="10dp"
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@id/txtFeatures"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <LinearLayout
+                        <RadioGroup
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <RadioGroup
+                            <CheckBox
+                                android:id="@+id/cb1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:fontFamily="@font/poppins"
+                                android:text="Bluetooth">
 
-                                <CheckBox
-                                    android:id="@+id/cb1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="Bluetooth">
+                            </CheckBox>
 
-                                </CheckBox>
+                            <CheckBox
+                                android:id="@+id/cb2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="A/C">
 
-                                <CheckBox
-                                    android:id="@+id/cb2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="A/C">
+                            </CheckBox>
 
-                                </CheckBox>
+                            <CheckBox
+                                android:id="@+id/cb3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Alarma">
 
-                                <CheckBox
-                                    android:id="@+id/cb3"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="Alarma">
+                            </CheckBox>
 
-                                </CheckBox>
+                            <CheckBox
+                                android:id="@+id/cb4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="AplecarPlay/AndroidAuto">
 
-                                <CheckBox
-                                    android:id="@+id/cb4"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="AplecarPlay/AndroidAuto">
+                            </CheckBox>
 
-                                </CheckBox>
+                            <CheckBox
+                                android:id="@+id/cb5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Frenos ABS">
 
-                                <CheckBox
-                                    android:id="@+id/cb5"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="Frenos ABS">
+                            </CheckBox>
 
-                                </CheckBox>
+                            <CheckBox
+                                android:id="@+id/cb6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Camara de Reversa">
 
-                                <CheckBox
-                                    android:id="@+id/cb6"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="Camara de Reversa">
+                            </CheckBox>
 
-                                </CheckBox>
+                            <CheckBox
+                                android:id="@+id/cb7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Sensores de estacionamiento">
 
-                                <CheckBox
-                                    android:id="@+id/cb7"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="Sensores de estacionamiento">
+                            </CheckBox>
 
-                                </CheckBox>
+                            <CheckBox
+                                android:id="@+id/cb8"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Bolsas de Aire"></CheckBox>
 
-                                <CheckBox
-                                    android:id="@+id/cb8"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="Bolsas de Aire"></CheckBox>
+                            <CheckBox
+                                android:id="@+id/cb9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Sistema electrico"></CheckBox>
 
-                                <CheckBox
-                                    android:id="@+id/cb9"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="Sistema electrico"></CheckBox>
+                        </RadioGroup>
 
-                            </RadioGroup>
+                    </LinearLayout>
 
-                        </LinearLayout>
-
-                    </HorizontalScrollView>
-                </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
 
 
             <LinearLayout
@@ -483,16 +483,32 @@
                 </TextView>
             </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/imgPubli"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/container_btn_uploadImages"/>
+                android:layout_height="80dp"
+                android:id="@+id/kaka"
+                android:orientation="horizontal"
+                android:layout_below="@+id/container_btn_uploadImages">
+                <GridView
+                    android:id="@+id/imgPubli"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:scrollbars="none"
+                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:columnWidth="100dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="5"
+                    android:verticalSpacing="5dp" />
+            </LinearLayout>
+
 
             <RelativeLayout
                 android:id="@+id/container_post_6"
-                android:layout_below="@+id/imgPubli"
+                android:layout_below="@+id/kaka"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp">
