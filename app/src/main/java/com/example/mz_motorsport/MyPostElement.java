@@ -2,7 +2,9 @@ package com.example.mz_motorsport;
 
 import android.graphics.Bitmap;
 
-public class MyPostElement {
+import java.io.Serializable;
+
+public class MyPostElement implements Serializable {
     public String id;
     public String imgCar;
     public String title;

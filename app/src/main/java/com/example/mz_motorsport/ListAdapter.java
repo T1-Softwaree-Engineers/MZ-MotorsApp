@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
@@ -68,6 +70,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgCar, imgVendida, imgAutorizada, delete;
         TextView title, price;
+        CardView cardPost;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -77,6 +80,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             delete = itemView.findViewById(R.id.DeleteMyPost);
             title = itemView.findViewById(R.id.MyTitle);
             price = itemView.findViewById(R.id.MyPrice);
+            cardPost = itemView.findViewById(R.id.MyFoto_titlePost);
         }
 
         void bindData(final MyPostElement item) {
@@ -93,6 +97,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 public void onClick(View view) {
                     Toast.makeText(context, "ID: "+item.getId(), Toast.LENGTH_SHORT).show();
                     openDialogDelete(item);
+                }
+            });
+
+            cardPost.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, CarDetails.class);
+                    Bundle p = new Bundle();
+                    p.putSerializable("MyPost", item);
+                    i.putExtras(p);
+                    context.startActivity(i);
                 }
             });
         }

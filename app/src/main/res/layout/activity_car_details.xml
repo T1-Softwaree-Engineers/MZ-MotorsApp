@@ -51,7 +51,7 @@
                 android:layout_height="33dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Tesla Model 3"
-                android:textSize="22dp"/>
+                android:textSize="22dp" />
 
             <TextView
                 android:id="@+id/price_car"
