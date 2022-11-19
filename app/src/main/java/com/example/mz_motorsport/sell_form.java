@@ -41,6 +41,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
@@ -64,6 +65,7 @@ public class sell_form extends AppCompatActivity {
     List<String> listaBase64Imagenes = new ArrayList<>();
     GridViewAdapter baseAdapter;
 
+    String URL_PHOTOS = "https://ochoarealestateservices.com/mzmotors/mkdir.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,16 +185,20 @@ public class sell_form extends AppCompatActivity {
                 if (txtTitle.isEmpty() || txtCondition.isEmpty() || txtYear.isEmpty() || txtBrand.isEmpty() || txtModel.isEmpty() || txtFeatures.isEmpty() || txtLocation.isEmpty() ||txtPrice.isEmpty() || txtDescription.isEmpty()){
                     Toast.makeText(sell_form.this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
                 }else {
+                    openDialogLoad();
                     //Toast.makeText(sell_form.this, "Lleno", Toast.LENGTH_SHORT).show();
                     //Log.e("Features", txtFeatures);
+                    createPost("https://ochoarealestateservices.com/mzmotors/publicaciones.php");
+
                     listaBase64Imagenes.clear();
+
                     for (int i = 0; i < listaImagenes.size(); i++){
                         try{
                             InputStream is = getContentResolver().openInputStream(listaImagenes.get(i));
                             Bitmap bitmap = BitmapFactory.decodeStream(is);
 
                             String cadena = convertirUtiToBase64(bitmap);
-                            createPost("nomImg" + 1, cadena, "https://ochoarealestateservices.com/mzmotors/publicaciones.php");
+                            enviarImagenes("nomImg" + i, cadena );
                             bitmap.recycle();
 
                         }catch (IOException e){
@@ -207,6 +213,39 @@ public class sell_form extends AppCompatActivity {
         });
     }
 
+    public void enviarImagenes(final String nombre, final String cadena) {
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PHOTOS,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(sell_form.this, response, Toast.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new Hashtable<String, String>();
+                SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
+                String uEmail = datosU.getString("email", "");
+                //String imagen = getStringImagen(bitmap);
+                params.put("Email", uEmail);
+                params.put("nom", nombre);
+                params.put("imagenes", cadena);
+
+                return params;
+            }
+        };
+
+        requestQueue.add(stringRequest);
+    }
+
     public String convertirUtiToBase64(Bitmap bitmap){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
@@ -217,8 +256,7 @@ public class sell_form extends AppCompatActivity {
     }
 
 
-    public void createPost(final String nombre, final String cadena, final String URL){
-        openDialogLoad();
+    public void createPost(final String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -259,7 +297,6 @@ public class sell_form extends AppCompatActivity {
                 String uEmail = datosU.getString("email", "");
                 //String imagen = getStringImagen(bitmap);
                 parametros.put("Email", uEmail);
-                parametros.put("Foto", cadena);
                 parametros.put("Title", txtTitle);
                 parametros.put("Condition", txtCondition);
                 parametros.put("Year", txtYear);
@@ -269,7 +306,6 @@ public class sell_form extends AppCompatActivity {
                 parametros.put("Location", txtLocation);
                 parametros.put("Price", txtPrice);
                 parametros.put("Description", txtDescription);
-                parametros.put("nom", nombre);
 
                 return parametros;
             }
@@ -279,14 +315,14 @@ public class sell_form extends AppCompatActivity {
 
     }
 
-
+    /*
     public String getStringImagen(Bitmap bmp) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] imageBytes = baos.toByteArray();
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
         return encodedImage;
-    }
+    } */
 
 
     private void showFileChooser() {

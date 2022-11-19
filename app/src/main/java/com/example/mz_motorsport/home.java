@@ -68,7 +68,7 @@ public class home extends Fragment {
 
         carousel.setData(list);
 
-
+        /*
         post_container = (RelativeLayout) vista.findViewById(R.id.post_container);
 
 
@@ -79,7 +79,7 @@ public class home extends Fragment {
                 Intent i = new Intent(getActivity(),CarDetails.class);
                 startActivity(i);
             }
-        });
+        }); */
 
 
 
