@@ -24,18 +24,6 @@
 	  echo json_encode($data);
 	}*/
 
-
-	/*if ($api == 'POST') {
-		$email = $user->test_input($_POST['email']);
-		$password = $user->test_input($_POST['pwd']);
-		$password = hash('sha512', $password);
-		if ($user->login($email, $password)) {
-		  echo $user->message('User login successfully!',false);
-		} else {
-		  echo $user->message('Failed to login !',true);
-		}
-	  }*/
-
 	if ($api == 'GET') {
 		
 		$email = $user->test_input($_GET['email']);
@@ -50,12 +38,34 @@
 		$contacto = $user->test_input($_POST['contacto']);
 		$password = $user->test_input($_POST['pwd']);
 		$password = hash('sha512', $password);
+		
+		$directorioActual= getcwd();
+        $directorioNuevo= $email;
+    
+        if(mkdir($directorioActual. "/users/" . $directorioNuevo, 0777)) {
+            echo "Directorio creado";
+        } else {
+            echo "Error al crear el directorio";
+        }
+        
 		if ($user->insert($nombre, $email, $contacto, $password)) {
 			echo $user->message('User added successfully!',false);
 		} else {
 			echo $user->message('Failed to add an user!',true);
 		}
 	}
+
+	/*if ($api == 'POST') {
+		$email = $user->test_input($_POST['email']);
+		$password = $user->test_input($_POST['pwd']);
+		$password = hash('sha512', $password);
+		if ($user->login($email, $password)) {
+		  echo $user->message('User login successfully!',false);
+		} else {
+		  echo $user->message('Failed to login !',true);
+		}
+	  }*/
+
     
 	if ($api == 'PUT') {
 	  parse_str(file_get_contents('php://input'), $post_input);

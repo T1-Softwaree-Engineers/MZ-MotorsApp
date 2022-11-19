@@ -19,7 +19,6 @@ public class person extends Fragment {
     View vista;
     CardView btnvender, btnMypost, btnProfile;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         vista = inflater.inflate(R.layout.fragment_person, container, false);
