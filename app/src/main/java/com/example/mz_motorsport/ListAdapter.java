@@ -86,7 +86,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         void bindData(final MyPostElement item) {
             Picasso.get().load(item.getImgCar()).error(R.mipmap.ic_launcher_round).into(imgCar);
             title.setText(item.getTitle());
-            price.setText("$ "+item.getPrice());
+            price.setText("$" + item.getPrice());
             if(item.getAutorizada() == 1){
                 imgAutorizada.setImageResource(R.drawable.cheque);
             }
@@ -114,6 +114,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     private void openDialogDelete(MyPostElement item) {
+
         d_contact.setContentView(R.layout.delete_dialog);
         d_contact.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         d_contact.show();

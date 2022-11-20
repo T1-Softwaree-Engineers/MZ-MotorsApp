@@ -2,12 +2,19 @@ package com.example.mz_motorsport;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -44,12 +51,29 @@ public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        ImageView imgcar;
+        TextView titlecar,preciocar;
+        RelativeLayout containerimg;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
+
+            imgcar = itemView.findViewById(R.id.imgcar);
+            titlecar = itemView.findViewById(R.id.titlecar);
+            preciocar = itemView.findViewById(R.id.preciocar);
+            containerimg = itemView.findViewById(R.id.MyFoto_titlePost);
         }
 
-        public void bindData(MyPostElement myPostElement) {
+        public void bindData(final MyPostElement item) {
+
+                Picasso.get().load(item.getImgCar()+"/nomImg0.png").error(R.mipmap.ic_launcher_round).into(imgcar);
+                titlecar.setText(item.getTitle());
+                preciocar.setText("$ "+item.getPrice());
+                d_contact = new Dialog(context);
+
         }
+
     }
+
+
 }

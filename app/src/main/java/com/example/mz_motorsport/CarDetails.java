@@ -96,6 +96,7 @@ public class CarDetails extends AppCompatActivity {
         MyPostElement MP = null;
         if (objeto != null){
             MP = (MyPostElement) objeto.getSerializable("MyPost");
+            MP = (MyPostElement) objeto.getSerializable("HomePost");
             //---------------Imagen---------------
             list.add(new CarouselItem(MP.getImgCar()));
 
