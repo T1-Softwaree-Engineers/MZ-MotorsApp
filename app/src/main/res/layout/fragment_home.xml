@@ -51,7 +51,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="7dp"
             android:layout_marginLeft="2dp"
-            android:hint="Search for Honda Pilot 7-passenger"
+            android:hint="Search"
             app:startIconDrawable="@drawable/ic_baseline_search_24">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="320dp"
