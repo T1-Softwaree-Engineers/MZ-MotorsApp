@@ -96,9 +96,12 @@ public class CarDetails extends AppCompatActivity {
         MyPostElement MP = null;
         if (objeto != null){
             MP = (MyPostElement) objeto.getSerializable("MyPost");
-            MP = (MyPostElement) objeto.getSerializable("HomePost");
             //---------------Imagen---------------
-            list.add(new CarouselItem(MP.getImgCar()));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg0.png"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg1.png"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg2.png"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg3.png"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg4.png"));
 
             //list.add(new CarouselItem(R.drawable.car_1, "Tesla model 3"));
             carousel.setData(list);
@@ -135,7 +138,6 @@ public class CarDetails extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
