@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 public class MyPostElement implements Serializable {
     public String id;
-    public String email_user;
     public String imgCar;
     public String title;
     public String marca;
@@ -21,9 +20,8 @@ public class MyPostElement implements Serializable {
     public int vendida;
 
 
-    public MyPostElement(String id, String email_user, String imgCar, String title, String marca, String modelo, String año, double price, String ubicacion, String features, int condicion, String descripcion, int autorizada, int vendida) {
+    public MyPostElement(String id, String imgCar, String title, String marca, String modelo, String año, double price, String ubicacion, String features, int condicion, String descripcion, int autorizada, int vendida) {
         this.id = id;
-        this.email_user = email_user;
         this.imgCar = imgCar;
         this.title = title;
         this.marca = marca;
@@ -44,14 +42,6 @@ public class MyPostElement implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getEmail_user() {
-        return email_user;
-    }
-
-    public void setEmail_user(String email_user) {
-        this.email_user = email_user;
     }
 
     public String getImgCar() {

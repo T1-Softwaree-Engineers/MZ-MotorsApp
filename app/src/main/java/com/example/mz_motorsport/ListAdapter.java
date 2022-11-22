@@ -30,7 +30,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
-import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,11 +84,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         }
 
         void bindData(final MyPostElement item) {
-            imgCar.setImageResource(R.drawable.aveo);
             Picasso.get().load(item.getImgCar()+"/nomImg0.png").error(R.mipmap.ic_launcher_round).into(imgCar);
             title.setText(item.getTitle());
-            NumberFormat formatoImporte = NumberFormat.getCurrencyInstance();
-            price.setText(formatoImporte.format(item.getPrice()));
+            price.setText("$" + item.getPrice());
             if(item.getAutorizada() == 1){
                 imgAutorizada.setImageResource(R.drawable.cheque);
             }
@@ -99,7 +96,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(context, "ID: "+item.getId(), Toast.LENGTH_SHORT).show();
-                    Toast.makeText(context, ""+item.getEmail_user(), Toast.LENGTH_SHORT).show();
                     openDialogDelete(item);
                 }
             });
@@ -111,7 +107,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                     Bundle p = new Bundle();
                     p.putSerializable("MyPost", item);
                     i.putExtras(p);
-                    i.putExtra("YourPost", true);
                     context.startActivity(i);
                 }
             });
@@ -130,7 +125,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             public void onClick(View view) {
                 mData.remove(item);
                 notifyDataSetChanged();
-                deletePost("https://ochoarealestateservices.com/mzmotors/publicaciones.php?id="+item.getId()+"&email="+item.getEmail_user());
+                deletePost("https://ochoarealestateservices.com/mzmotors/publicaciones.php?id="+item.getId());
                 d_contact.dismiss();
             }
         });

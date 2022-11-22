@@ -12,16 +12,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +28,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -41,11 +36,9 @@ import com.squareup.picasso.Picasso;
 public class CarDetails extends AppCompatActivity {
 
     Button btn_interested;
-    TextView nameCar, priceCar, descriptionCar, locationCar, detailsCar, seeAll, txtFeature, txtFeature2;
+    TextView nameCar, priceCar, descriptionCar, locationCar, detailsCar, seeAll;
     ImageView atras;
 
-    RelativeLayout footer;
-    String sellerName, sellerEmail, sellerPhone;
     Dialog d_contact;
     List<CarouselItem> list = new ArrayList<>();
 
@@ -62,72 +55,29 @@ public class CarDetails extends AppCompatActivity {
         descriptionCar = (TextView)findViewById(R.id.description);
         locationCar = (TextView)findViewById(R.id.location);
         detailsCar = (TextView)findViewById(R.id.carDetails);
-        txtFeature = (TextView)findViewById(R.id.txtFeature);
-        txtFeature2 = (TextView)findViewById(R.id.txtFeature2);
         btn_interested = (Button)findViewById(R.id.btn_interested);
-        footer = (RelativeLayout)findViewById(R.id.footer_bg);
         atras = (ImageView)findViewById(R.id.flecha_atras);
         seeAll = (TextView)findViewById(R.id.seeAll);
 
-        boolean MyPost = getIntent().getBooleanExtra("YourPost", false);
-        if(MyPost){
-            btn_interested.setVisibility(View.GONE);
-
-        }else{
-            footer.setVisibility(View.GONE);
-        }
-
         d_contact = new Dialog(this);
         // Image drawable with caption
+
+
+
+
+        seeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CarDetails.this,car_details_extra.class);
+                startActivity(i);
+
+            }
+        });
 
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
-            }
-        });
-
-
-        //--------------------Set de la informacion--------------------
-        Bundle objeto = getIntent().getExtras();
-        MyPostElement MP = null;
-        if (objeto != null){
-            MP = (MyPostElement) objeto.getSerializable("MyPost");
-            sellerEmail = MP.getEmail_user();
-            //---------------Imagene dentro de la carpeta ---------------
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg0.png"));
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg1.png"));
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg2.png"));
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg3.png"));
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg4.png"));
-
-            //list.add(new CarouselItem(R.drawable.car_1, "Tesla model 3"));
-            carousel.setData(list);
-            //------------------------------------
-            nameCar.setText(MP.getTitle());
-            NumberFormat formatoImporte = NumberFormat.getCurrencyInstance();
-            priceCar.setText(formatoImporte.format(MP.getPrice()));
-            descriptionCar.setText(MP.getDescripcion());
-            locationCar.setText(MP.getUbicacion());
-            detailsCar.setText(MP.getMarca()+", "+MP.getModelo());
-
-            String[] parts = MP.getFeatures().split(",");
-            //----Acomodo de Fetures----
-            txtFeature.setText(parts[0]);
-            txtFeature2.setText(parts[1]);
-            getInfoSeller("https://ochoarealestateservices.com/mzmotors/users.php?email="+MP.getEmail_user());
-        }
-
-        MyPostElement finalMP = MP;
-        seeAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(CarDetails.this, car_details_extra.class);
-                Bundle p = new Bundle();
-                p.putSerializable("MyElementsPost", finalMP);
-                i.putExtras(p);
-                startActivity(i);
-
             }
         });
 
@@ -138,6 +88,36 @@ public class CarDetails extends AppCompatActivity {
             }
         });
 
+
+
+        //--------------------Set de la informacion--------------------
+
+        Bundle objeto = getIntent().getExtras();
+        MyPostElement MP = null;
+        if (objeto != null){
+            MP = (MyPostElement) objeto.getSerializable("MyPost");
+<<<<<<< HEAD
+            sellerEmail = MP.getEmail_user();
+            //---------------Imagene dentro de la carpeta ---------------
+=======
+            //---------------Imagen---------------
+>>>>>>> parent of 448fdfe... Finish CarDetails and some details
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg0.png"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg1.png"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg2.png"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg3.png"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg4.png"));
+
+            //list.add(new CarouselItem(R.drawable.car_1, "Tesla model 3"));
+            carousel.setData(list);
+            //------------------------------------
+            nameCar.setText(MP.getTitle());
+            priceCar.setText("$ "+MP.getPrice());
+            descriptionCar.setText(MP.getDescripcion());
+            locationCar.setText(MP.getUbicacion());
+            detailsCar.setText(MP.getMarca()+", "+MP.getModelo());
+        }
+
     }
 
     private void openDialog() {
@@ -145,20 +125,11 @@ public class CarDetails extends AppCompatActivity {
         d_contact.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         d_contact.show();
 
-        TextView sName, sEmail, sPhone;
-        sName = d_contact.findViewById(R.id.txtSellerName);
-        sEmail = d_contact.findViewById(R.id.txtSellerEmail);
-        sPhone = d_contact.findViewById(R.id.txtSellerPhone);
-
-        sName.setText(sellerName);
-        sEmail.setText(sellerEmail);
-        sPhone.setText(sellerPhone);
-
         Button btn_contact = d_contact.findViewById(R.id.btn_contact);
         btn_contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri wha = Uri.parse("https://wa.me/52"+sellerPhone);
+                Uri wha = Uri.parse("https://wa.me/523141027774");
                 Intent i = new Intent(Intent.ACTION_VIEW, wha);
                 startActivity(i);
             }
@@ -172,30 +143,6 @@ public class CarDetails extends AppCompatActivity {
             }
         });
     }
-
-    private void getInfoSeller(String URL) {
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL ,new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                JSONObject jsonObject = null;
-                try {
-                    jsonObject = response.getJSONObject(0);
-                    sellerName = jsonObject.getString("nombre");
-                    sellerPhone = jsonObject.getString("contacto");
-                }catch (JSONException e){
-                    Toast.makeText(CarDetails.this, "Vendedor no Encontrado", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(CarDetails.this, error.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-        RequestQueue requestQueue2 = Volley.newRequestQueue(this);
-        requestQueue2.add(jsonArrayRequest);
-    }
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();

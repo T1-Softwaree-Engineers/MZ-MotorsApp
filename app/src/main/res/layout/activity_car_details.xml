@@ -77,92 +77,83 @@
             android:textSize="16dp" />
 
 
-        <RelativeLayout
+        <!--Contenedor de Features-->
+        <LinearLayout
             android:id="@+id/features"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_below="@+id/description"
-            android:layout_marginTop="20dp">
-            <!--Contenedor de Features-->
-            <LinearLayout
-                android:layout_width="330dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--Feature1-->
+            <RelativeLayout
+                android:id="@+id/feature_1"
+                android:layout_width="wrap_content"
                 android:layout_height="28dp"
-                android:layout_centerVertical="true"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bg_features">
 
-                <!--Feature1-->
-                <RelativeLayout
-                    android:id="@+id/feature_1"
+                <ImageView
+                    android:id="@+id/checkbox"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/check_box" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="28dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/bg_features">
+                    android:layout_alignLeft="@+id/checkbox"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Autopilot"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+            </RelativeLayout>
 
-                    <ImageView
-                        android:id="@+id/checkbox"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:src="@drawable/check_box" />
+            <!--Feature2-->
+            <RelativeLayout
+                android:id="@+id/feature_2"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/bg_features">
 
-                    <TextView
-                        android:id="@+id/txtFeature"
-                        android:layout_width="wrap_content"
-                        android:layout_height="28dp"
-                        android:layout_toRightOf="@+id/checkbox"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Autopilot"
-                        android:textColor="@color/white"
-                        android:textSize="18dp" />
-                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/checkbox2"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/check_box" />
 
-                <!--Feature2-->
-                <RelativeLayout
-                    android:id="@+id/feature_2"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="28dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/bg_features">
+                    android:layout_alignLeft="@+id/checkbox2"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="360° Camera"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+            </RelativeLayout>
 
-                    <ImageView
-                        android:id="@+id/checkbox2"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:src="@drawable/check_box" />
-
-                    <TextView
-                        android:id="@+id/txtFeature2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="28dp"
-                        android:layout_toRightOf="@+id/checkbox2"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Cuatro Ruedas"
-                        android:textColor="@color/white"
-                        android:textSize="18dp" />
-                </RelativeLayout>
-            </LinearLayout>
             <!--See All-->
             <TextView
                 android:id="@+id/seeAll"
                 android:layout_width="65dp"
                 android:layout_height="23dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
                 android:alpha="0.5"
                 android:fontFamily="@font/poppins"
                 android:text="See All"
                 android:textAlignment="center"
                 android:textSize="15dp" />
-        </RelativeLayout>
+        </LinearLayout>
 
 
         <!--Contenedor Informacion Secundaria-->
@@ -171,7 +162,7 @@
             android:layout_width="366dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/features"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="44dp"
             android:layout_centerHorizontal="true"
             android:orientation="horizontal">
 
@@ -231,41 +222,6 @@
             android:text="IM INTERESTED"
             android:textSize="18dp"
             app:cornerRadius="10dp" />
-
-
-
-        <!--Footer del CarDetails-->
-        <!--Solo se muestra en las publicaciones que allas realizado que esten en la seccion de MyPost-->
-        <RelativeLayout
-            android:id="@+id/footer_bg"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="@drawable/footer_bg"
-            android:layout_alignParentBottom="true">
-
-            <TextView
-                android:id="@+id/mensaje1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="13dp"
-                android:text="This post is yours"
-                android:textSize="14dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mensaje1"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="1dp"
-                android:text="Click here to edit the post"
-                android:textSize="14dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold"/>
-
-        </RelativeLayout>
     </RelativeLayout>
 
 

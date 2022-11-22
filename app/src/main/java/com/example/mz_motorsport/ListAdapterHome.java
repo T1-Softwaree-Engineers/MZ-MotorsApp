@@ -17,8 +17,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
+<<<<<<< HEAD
 import java.text.NumberFormat;
 import java.util.ArrayList;
+=======
+>>>>>>> parent of 448fdfe... Finish CarDetails and some details
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -66,7 +69,7 @@ public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHo
 
         ImageView imgcar;
         TextView titlecar,preciocar;
-        RelativeLayout post_container;
+        RelativeLayout containerimg;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -74,27 +77,15 @@ public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHo
             imgcar = itemView.findViewById(R.id.imgcar);
             titlecar = itemView.findViewById(R.id.titlecar);
             preciocar = itemView.findViewById(R.id.preciocar);
-            post_container = itemView.findViewById(R.id.post_container);
+            containerimg = itemView.findViewById(R.id.MyFoto_titlePost);
         }
 
         public void bindData(final MyPostElement item) {
 
                 Picasso.get().load(item.getImgCar()+"/nomImg0.png").error(R.mipmap.ic_launcher_round).into(imgcar);
                 titlecar.setText(item.getTitle());
-                NumberFormat formatoImporte = NumberFormat.getCurrencyInstance();
-                preciocar.setText(formatoImporte.format(item.getPrice()));
+                preciocar.setText("$ "+item.getPrice());
                 d_contact = new Dialog(context);
-
-                post_container.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent i = new Intent(context, CarDetails.class);
-                        Bundle p = new Bundle();
-                        p.putSerializable("MyPost", item);
-                        i.putExtras(p);
-                        context.startActivity(i);
-                    }
-                });
 
         }
 
