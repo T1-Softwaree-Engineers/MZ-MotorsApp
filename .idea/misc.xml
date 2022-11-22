@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/drawable/bg_features.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/custom_input.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/effect_pressed.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/footer_bg.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/header_bg.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_20.xml" value="0.1" />
@@ -15,8 +17,9 @@
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_car_details.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_car_details_extra.xml" value="0.16" />
+        <entry key="app/src/main/res/drawable/layout_bg.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_car_details.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_car_details_extra.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/layout/activity_my_post.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_navigation.xml" value="0.1675438596491228" />
@@ -26,8 +29,10 @@
         <entry key="app/src/main/res/layout/activity_signup2.xml" value="0.1675438596491228" />
         <entry key="app/src/main/res/layout/contact_dialog.xml" value="0.2" />
         <entry key="app/src/main/res/layout/delete_dialog.xml" value="0.16666666666666666" />
+        <entry key="app/src/main/res/layout/feature_element.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_person.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/home_post_element.xml" value="0.18" />
         <entry key="app/src/main/res/layout/item_gv_imagen.xml" value="0.16666666666666666" />
         <entry key="app/src/main/res/layout/mypost_element.xml" value="0.22" />
       </map>

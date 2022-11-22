@@ -3,7 +3,6 @@ package com.example.mz_motorsport;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,14 +16,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
-<<<<<<< HEAD
 import java.text.NumberFormat;
-import java.util.ArrayList;
-=======
->>>>>>> parent of 448fdfe... Finish CarDetails and some details
 import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
 
 public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHolder> {
 
@@ -37,12 +30,6 @@ public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHo
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
-
-    }
-
-    public void setfilteredlist(List<MyPostElement> filteredlist) {
-        this.mData = filteredlist;
-        notifyDataSetChanged();
     }
 
     @Override
@@ -56,20 +43,18 @@ public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHo
         holder.bindData(mData.get(position));
     }
 
-
-
     @Override
     public int getItemCount() {
        return mData.size();
     }
 
-
+    public void setItems(List<MyPostElement> items) {mData = items; }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imgcar;
         TextView titlecar,preciocar;
-        RelativeLayout containerimg;
+        RelativeLayout post_container;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -77,15 +62,27 @@ public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHo
             imgcar = itemView.findViewById(R.id.imgcar);
             titlecar = itemView.findViewById(R.id.titlecar);
             preciocar = itemView.findViewById(R.id.preciocar);
-            containerimg = itemView.findViewById(R.id.MyFoto_titlePost);
+            post_container = itemView.findViewById(R.id.post_container);
         }
 
         public void bindData(final MyPostElement item) {
 
                 Picasso.get().load(item.getImgCar()+"/nomImg0.png").error(R.mipmap.ic_launcher_round).into(imgcar);
                 titlecar.setText(item.getTitle());
-                preciocar.setText("$ "+item.getPrice());
+                NumberFormat formatoImporte = NumberFormat.getCurrencyInstance();
+                preciocar.setText(formatoImporte.format(item.getPrice()));
                 d_contact = new Dialog(context);
+
+                post_container.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(context, CarDetails.class);
+                        Bundle p = new Bundle();
+                        p.putSerializable("MyPost", item);
+                        i.putExtras(p);
+                        context.startActivity(i);
+                    }
+                });
 
         }
 

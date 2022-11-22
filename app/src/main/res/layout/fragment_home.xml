@@ -42,12 +42,30 @@
         android:layout_marginTop="20dp"
         android:layout_margin="10dp">
 
-        <SearchView
-            android:id="@+id/searh_view"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/search"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Buscar"
-            android:iconifiedByDefault="false"/>
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="2dp"
+            android:hint="Search"
+            app:startIconDrawable="@drawable/ic_baseline_search_24">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoComplete" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="335dp"
+            android:layout_marginTop="18dp"
+            app:drawableStartCompat="@drawable/ic_baseline_display_settings_24" />
 
     </RelativeLayout>
 
@@ -67,7 +85,7 @@
             <org.imaginativeworld.whynotimagecarousel.ImageCarousel
                 android:id="@+id/carousel"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
 
                 app:carouselType="BLOCK"
                 app:imageScaleType="centerCrop"
@@ -82,15 +100,8 @@
         android:id="@+id/listHomeRecycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-<<<<<<< HEAD
-        android:layout_marginBottom="60dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+         android:layout_marginBottom="60dp"
         android:layout_marginTop="5dp"
-=======
-        android:layout_marginTop="10dp"
-
->>>>>>> parent of 448fdfe... Finish CarDetails and some details
         android:layout_below="@+id/carrousel"/>
 
 </RelativeLayout>

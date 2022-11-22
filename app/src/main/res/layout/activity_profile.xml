@@ -19,12 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            
+
             android:fontFamily="@font/racing_sans_one"
             android:gravity="center"
             android:text="MZMOTORS"
             android:textColor="#0066CC"
-            android:textSize="60dp"/>
+            android:textSize="60dp" />
 
 
     </RelativeLayout>
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/addphoto"
         android:layout_below="@+id/imgcontainer"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:text="Add/update photo"
         android:fontFamily="@font/poppins_bold"
         android:textAlignment="center"
@@ -64,10 +64,11 @@
         android:id="@+id/tableDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_below="@+id/imgcontainer"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="40dp">
 
 
         <TableRow
@@ -159,14 +160,4 @@
         </Button>
 
     </RelativeLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/imgProfile"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="125dp"
-        android:layout_marginLeft="220dp"
-        android:clickable="true"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
 </RelativeLayout>
