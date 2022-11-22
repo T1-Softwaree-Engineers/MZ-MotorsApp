@@ -85,7 +85,7 @@
             <org.imaginativeworld.whynotimagecarousel.ImageCarousel
                 android:id="@+id/carousel"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
 
                 app:carouselType="BLOCK"
                 app:imageScaleType="centerCrop"
@@ -100,8 +100,8 @@
         android:id="@+id/listHomeRecycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-
+         android:layout_marginBottom="60dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/carrousel"/>
 
 </RelativeLayout>

@@ -78,7 +78,7 @@ public class sell_form extends AppCompatActivity {
         title = (EditText)findViewById(R.id.TitlePost);
         title.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
         year = (EditText)findViewById(R.id.YearPost);
-        year.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10)});
+        year.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
         brand = (EditText)findViewById(R.id.BrandPost);
         brand.setFilters(new InputFilter[]{new InputFilter.LengthFilter(30)});
         model = (EditText)findViewById(R.id.ModelPost);
@@ -86,6 +86,7 @@ public class sell_form extends AppCompatActivity {
         location = (EditText)findViewById(R.id.LocationPost);
         location.setFilters(new InputFilter[]{new InputFilter.LengthFilter(40)});
         price = (EditText)findViewById(R.id.PricePost);
+        price.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10)});
         description = (EditText)findViewById(R.id.descriptionPost);
 
         rbNew = (RadioButton)findViewById(R.id.rb_new);
@@ -186,12 +187,9 @@ public class sell_form extends AppCompatActivity {
                     Toast.makeText(sell_form.this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
                 }else {
                     openDialogLoad();
-                    //Toast.makeText(sell_form.this, "Lleno", Toast.LENGTH_SHORT).show();
-                    //Log.e("Features", txtFeatures);
                     createPost("https://ochoarealestateservices.com/mzmotors/publicaciones.php");
 
                     listaBase64Imagenes.clear();
-
                     for (int i = 0; i < listaImagenes.size(); i++){
                         try{
                             InputStream is = getContentResolver().openInputStream(listaImagenes.get(i));
@@ -220,7 +218,7 @@ public class sell_form extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(sell_form.this, response, Toast.LENGTH_LONG).show();
+                        d_contact.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -265,7 +263,6 @@ public class sell_form extends AppCompatActivity {
                     //Toast.makeText(sell_form.this, ""+response, Toast.LENGTH_SHORT).show();
                     //Log.e("Respuesta: ", response);
                 }else {
-                    d_contact.dismiss();
                     openDialogSucces();
                     CountDownTimer countDownTimer = new CountDownTimer(2000, 1000) {
                         @Override

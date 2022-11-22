@@ -43,6 +43,7 @@
                     android:src="@drawable/ic_person" />
 
                 <TextView
+                    android:id="@+id/txtSellerName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -71,6 +72,7 @@
                     android:src="@drawable/ic_mark_email"/>
 
                 <TextView
+                    android:id="@+id/txtSellerEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -99,6 +101,7 @@
                     android:src="@drawable/ic_baseline_phone"/>
 
                 <TextView
+                    android:id="@+id/txtSellerPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"

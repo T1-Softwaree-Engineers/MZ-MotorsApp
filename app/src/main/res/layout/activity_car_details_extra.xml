@@ -11,7 +11,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/topbar">
 
-
+        <ImageView
+            android:id="@+id/flecha_atras"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/flecha" />
 
 
         <TextView
@@ -111,7 +117,6 @@
                     android:id="@+id/txtModelo"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
@@ -154,10 +159,9 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/txtAÑo"
+                    android:id="@+id/txtAno"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
@@ -193,73 +197,13 @@
 
     </RelativeLayout>
     <!--Linear LAyout donde se mostraran las features,este linear se ciclara-->
-    <LinearLayout
-        android:id="@+id/features"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/featuresZZZ"
         android:layout_width="match_parent"
-        android:layout_height="28dp"
-        android:layout_below="@+id/divTitleFeatures"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divTitleFeatures">
 
-        <RelativeLayout
-            android:id="@+id/feature"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_marginHorizontal="20dp"
-            android:background="@drawable/bg_features">
-
-            <ImageView
-                android:id="@+id/checkbox2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="5dp"
-                android:src="@drawable/check_box" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:layout_alignLeft="@+id/checkbox2"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="360° Camera"
-                android:textColor="@color/white"
-                android:textSize="18dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/feature2"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@drawable/bg_features">
-
-            <ImageView
-                android:id="@+id/checkbox3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="5dp"
-                android:src="@drawable/check_box" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:layout_alignLeft="@+id/checkbox3"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="360° Camera"
-                android:textColor="@color/white"
-                android:textSize="18dp" />
-        </RelativeLayout>
-
-    </LinearLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
     <RelativeLayout
@@ -267,7 +211,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:layout_below="@+id/features">
+        android:layout_below="@+id/featuresZZZ">
 
         <RelativeLayout
             android:id="@+id/containter_title_features"
@@ -286,12 +230,13 @@
 
 
         <TextView
-            android:layout_below="@+id/containter_title_features"
+            android:id="@+id/txtDescripcionExtra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12dp"
+            android:layout_below="@+id/containter_title_features"
+            android:fontFamily="@font/poppins"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur justo id augue auctor, at facilisis nisi tempus. Quisque efficitur dapibus justo a euismod. Ut nec est mi. Proin quam lectus, pellentesque id tortor vitae, maximus cursus nisl. Cras facilisis aliquam diam ut egestas. Nam ut turpis sit amet nisl scelerisque scelerisque. Sed vel semper tortor. Fusce sodales lorem in orci accumsan scelerisque. Quisque non eleifend sem. Donec a nulla eget lacus malesuada finibus non eu nisi. Pellentesque tempus lorem id volutpat fringilla. Duis euismod libero sed orci ultrices mattis. Integer egestas dignissim justo, sit amet ultricies felis scelerisque et. "
-            android:fontFamily="@font/poppins">
+            android:textSize="12dp">
 
         </TextView>
     </RelativeLayout>
