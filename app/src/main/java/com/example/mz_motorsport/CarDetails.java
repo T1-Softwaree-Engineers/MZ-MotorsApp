@@ -94,7 +94,7 @@ public class CarDetails extends AppCompatActivity {
         if (objeto != null){
             MP = (MyPostElement) objeto.getSerializable("MyPost");
             sellerEmail = MP.getEmail_user();
-            //---------------Imagen---------------
+            //---------------Imagene dentro de la carpeta ---------------
             list.add(new CarouselItem(MP.getImgCar()+"/nomImg0.png"));
             list.add(new CarouselItem(MP.getImgCar()+"/nomImg1.png"));
             list.add(new CarouselItem(MP.getImgCar()+"/nomImg2.png"));
