@@ -42,30 +42,12 @@
         android:layout_marginTop="20dp"
         android:layout_margin="10dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/search"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <SearchView
+            android:id="@+id/searh_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="7dp"
-            android:layout_marginLeft="2dp"
-            android:hint="Search"
-            app:startIconDrawable="@drawable/ic_baseline_search_24">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:inputType="textAutoComplete" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="335dp"
-            android:layout_marginTop="18dp"
-            app:drawableStartCompat="@drawable/ic_baseline_display_settings_24" />
+            android:queryHint="Buscar"
+            android:iconifiedByDefault="false"/>
 
     </RelativeLayout>
 
@@ -100,7 +82,9 @@
         android:id="@+id/listHomeRecycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-         android:layout_marginBottom="60dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/carrousel"/>
 

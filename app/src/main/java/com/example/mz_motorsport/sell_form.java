@@ -60,6 +60,7 @@ public class sell_form extends AppCompatActivity {
     Bitmap bitmap;
     Dialog d_contact;
     int PICK_IMAGE_REQUEST = 5;
+    List<String> cadena = new ArrayList<>();
 
     List<Uri> listaImagenes = new ArrayList<>();
     List<String> listaBase64Imagenes = new ArrayList<>();
@@ -181,29 +182,33 @@ public class sell_form extends AppCompatActivity {
                     txtFeatures += ", ";
                 }
 
+                //listaBase64Imagenes.clear();
+                for (int i = 0; i < listaImagenes.size(); i++){
+                    try{
+                        InputStream is = getContentResolver().openInputStream(listaImagenes.get(i));
+                        Bitmap bitmap = BitmapFactory.decodeStream(is);
+
+                        cadena.add(convertirUtiToBase64(bitmap));
+
+                        bitmap.recycle();
+
+                    }catch (IOException e){
+
+                    }
+                }
+
                 //------------------------------------------------
 
                 if (txtTitle.isEmpty() || txtCondition.isEmpty() || txtYear.isEmpty() || txtBrand.isEmpty() || txtModel.isEmpty() || txtFeatures.isEmpty() || txtLocation.isEmpty() ||txtPrice.isEmpty() || txtDescription.isEmpty()){
                     Toast.makeText(sell_form.this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
+                }else if(cadena.size() < 5){
+                    Toast.makeText(sell_form.this, ""+cadena.size(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(sell_form.this, "Ingrese al menos 5 Imagenes", Toast.LENGTH_SHORT).show();
                 }else {
+                    btnSell.setEnabled(false);
                     openDialogLoad();
                     createPost("https://ochoarealestateservices.com/mzmotors/publicaciones.php");
-
-                    listaBase64Imagenes.clear();
-                    for (int i = 0; i < listaImagenes.size(); i++){
-                        try{
-                            InputStream is = getContentResolver().openInputStream(listaImagenes.get(i));
-                            Bitmap bitmap = BitmapFactory.decodeStream(is);
-
-                            String cadena = convertirUtiToBase64(bitmap);
-                            enviarImagenes("nomImg" + i, cadena );
-                            bitmap.recycle();
-
-                        }catch (IOException e){
-
-                        }
-                    }
-                    btnSell.setEnabled(false);
+                    enviarImagenes(cadena);
                 }
 
 
@@ -211,7 +216,7 @@ public class sell_form extends AppCompatActivity {
         });
     }
 
-    public void enviarImagenes(final String nombre, final String cadena) {
+    public void enviarImagenes(List<String> cadena) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_PHOTOS,
@@ -219,6 +224,19 @@ public class sell_form extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         d_contact.dismiss();
+                        openDialogSucces();
+                        CountDownTimer countDownTimer = new CountDownTimer(2000, 1000) {
+                            @Override
+                            public void onTick(long l) {
+
+                            }
+
+                            @Override
+                            public void onFinish() {
+                                d_contact.dismiss();
+                                onBackPressed();
+                            }
+                        }.start();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -232,10 +250,13 @@ public class sell_form extends AppCompatActivity {
                 Map<String, String> params = new Hashtable<String, String>();
                 SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
                 String uEmail = datosU.getString("email", "");
+
                 //String imagen = getStringImagen(bitmap);
                 params.put("Email", uEmail);
-                params.put("nom", nombre);
-                params.put("imagenes", cadena);
+                for(int i=0; i<cadena.size(); i++){
+                    params.put("imagen"+i, cadena.get(i));
+                }
+                //params.put("numImg", ""+cadena.size());
 
                 return params;
             }
@@ -246,7 +267,7 @@ public class sell_form extends AppCompatActivity {
 
     public String convertirUtiToBase64(Bitmap bitmap){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, baos);
         byte[] bytes = baos.toByteArray();
         String encode = Base64.encodeToString(bytes, Base64.DEFAULT);
 
@@ -263,19 +284,7 @@ public class sell_form extends AppCompatActivity {
                     //Toast.makeText(sell_form.this, ""+response, Toast.LENGTH_SHORT).show();
                     //Log.e("Respuesta: ", response);
                 }else {
-                    openDialogSucces();
-                    CountDownTimer countDownTimer = new CountDownTimer(2000, 1000) {
-                        @Override
-                        public void onTick(long l) {
 
-                        }
-
-                        @Override
-                        public void onFinish() {
-                            d_contact.dismiss();
-                            onBackPressed();
-                        }
-                    }.start();
                 }
 
             }

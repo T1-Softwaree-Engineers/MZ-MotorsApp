@@ -3,6 +3,7 @@ package com.example.mz_motorsport;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,10 @@ import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHolder> {
 
@@ -30,6 +34,12 @@ public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHo
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
+
+    }
+
+    public void setfilteredlist(List<MyPostElement> filteredlist) {
+        this.mData = filteredlist;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -43,12 +53,14 @@ public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHo
         holder.bindData(mData.get(position));
     }
 
+
+
     @Override
     public int getItemCount() {
        return mData.size();
     }
 
-    public void setItems(List<MyPostElement> items) {mData = items; }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -67,7 +79,7 @@ public class ListAdapterHome extends RecyclerView.Adapter<ListAdapterHome.ViewHo
 
         public void bindData(final MyPostElement item) {
 
-                Picasso.get().load(item.getImgCar()+"/nomImg0.png").error(R.mipmap.ic_launcher_round).into(imgcar);
+                Picasso.get().load(item.getImgCar()+"/nomImg0.jpg").error(R.mipmap.ic_launcher_round).into(imgcar);
                 titlecar.setText(item.getTitle());
                 NumberFormat formatoImporte = NumberFormat.getCurrencyInstance();
                 preciocar.setText(formatoImporte.format(item.getPrice()));

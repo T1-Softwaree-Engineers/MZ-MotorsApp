@@ -94,12 +94,12 @@ public class CarDetails extends AppCompatActivity {
         if (objeto != null){
             MP = (MyPostElement) objeto.getSerializable("MyPost");
             sellerEmail = MP.getEmail_user();
-            //---------------Imagen---------------
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg0.png"));
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg1.png"));
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg2.png"));
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg3.png"));
-            list.add(new CarouselItem(MP.getImgCar()+"/nomImg4.png"));
+            //---------------Imagene dentro de la carpeta ---------------
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg0.jpg"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg1.jpg"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg2.jpg"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg3.jpg"));
+            list.add(new CarouselItem(MP.getImgCar()+"/nomImg4.jpg"));
 
             //list.add(new CarouselItem(R.drawable.car_1, "Tesla model 3"));
             carousel.setData(list);
@@ -114,7 +114,7 @@ public class CarDetails extends AppCompatActivity {
             String[] parts = MP.getFeatures().split(",");
             //----Acomodo de Fetures----
             txtFeature.setText(parts[0]);
-            txtFeature2.setText(parts[1]);
+            //txtFeature2.setText(parts[1]);
             getInfoSeller("https://ochoarealestateservices.com/mzmotors/users.php?email="+MP.getEmail_user());
         }
 

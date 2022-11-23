@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.telephony.RadioAccessSpecifier;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
@@ -19,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,8 +43,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class home extends Fragment {
 
     View vista;
-    RelativeLayout post_container;
-
+    SearchView searh_view;
+    ListAdapterHome adapter;
     List<CarouselItem> list = new ArrayList<>();
     List<MyPostElement> elements;
     ProgressBar pb;
@@ -54,6 +57,23 @@ public class home extends Fragment {
         vista = inflater.inflate(R.layout.fragment_home, container, false);
         requestQueue = Volley.newRequestQueue(getActivity());
         pb = (ProgressBar) vista.findViewById(R.id.progress_bar);
+        searh_view = (SearchView) vista.findViewById(R.id.searh_view);
+
+        elements = new ArrayList<>();
+        verPublicacionesHome("https://ochoarealestateservices.com/mzmotors/getAllAutorizedPost.php");
+
+        searh_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText);
+                return false;
+            }
+        });
 
         ImageCarousel carousel = vista.findViewById(R.id.carousel);
 
@@ -102,14 +122,31 @@ public class home extends Fragment {
                 startActivity(i);
             }
         }); */
-        verPublicacionesHome("https://ochoarealestateservices.com/mzmotors/getAllAutorizedPost.php");
+
+
 
         return vista;
 
     }
 
+    private void filter(String newText) {
+        List<MyPostElement> filteredlist = new ArrayList<>();
+        for (MyPostElement item : elements ){
+            if (item.getTitle().toLowerCase().contains(newText.toLowerCase())){
+                filteredlist.add(item);
+            }
+        }
+
+        if (filteredlist.isEmpty()){
+            Toast.makeText(getActivity(), "NO data found", Toast.LENGTH_SHORT).show();
+        }else {
+            adapter.setfilteredlist(filteredlist);
+        }
+    }
+
+
+
     public void verPublicacionesHome (String URL){
-        elements = new ArrayList<>();
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -136,7 +173,9 @@ public class home extends Fragment {
                         elements.add(new MyPostElement(pId, pEUser, pFoto, pTitle, pMarca, pModelo, pAño, pPrice, pUbicacion, pFeatures, pCondicion, pDescripcion, pAutorizada, pVendida));
                     }
 
+
                     init();
+
 
                 } catch (JSONException e) {
                     Toast.makeText(getActivity(), "No se Encuentran los datos", Toast.LENGTH_SHORT).show();
@@ -156,11 +195,14 @@ public class home extends Fragment {
     public void init () {
         //elements.add(new MyPostElement("sbe", "Pontiac", "$ 135,324.00", "abcva", "23352"));
         pb.setVisibility(View.GONE);
-        ListAdapterHome listAdapterHome = new ListAdapterHome(elements, getActivity());
+        //ListAdapterHome listAdapterHome = new ListAdapterHome(elements, getActivity());
         RecyclerView recyclerView = vista.findViewById(R.id.listHomeRecycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
-        recyclerView.setAdapter(listAdapterHome);
+        adapter = new ListAdapterHome(elements, getActivity());
+        recyclerView.setAdapter(adapter);
     }
 
+
 }
+
