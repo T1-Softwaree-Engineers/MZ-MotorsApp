@@ -3,13 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/btn_favorite"
-        android:layout_width="24dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="170dp"
-        android:layout_marginTop="35dp"
-        android:src="@drawable/ic_baseline_attach_money_24"/>
 
     <RelativeLayout
 
@@ -30,9 +23,10 @@
 
 
             <ImageView
+                android:layout_margin="10dp"
                 android:id="@+id/imgcar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="170dp"
                 android:layout_marginBottom="12dp"
                 android:scaleType="centerCrop"/>
 
