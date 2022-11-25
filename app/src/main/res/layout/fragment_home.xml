@@ -67,8 +67,7 @@
             <org.imaginativeworld.whynotimagecarousel.ImageCarousel
                 android:id="@+id/carousel"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-
+                android:layout_height="200dp"
                 app:carouselType="BLOCK"
                 app:imageScaleType="centerCrop"
                 app:showBottomShadow="false"

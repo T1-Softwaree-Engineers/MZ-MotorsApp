@@ -76,35 +76,33 @@ public class home extends Fragment {
         });
 
         ImageCarousel carousel = vista.findViewById(R.id.carousel);
+        carousel.setAutoPlay(true);
+        carousel.setAutoPlayDelay(3000); // Milliseconds
 
         list.add(
                 new CarouselItem(
-                        R.drawable.swift,
-                        "Susuki Swift"
+                        R.drawable.img1
+
                 )
         );
         list.add(
                 new CarouselItem(
-                        R.drawable.aveo,
-                        "Chevrolet Aveo"
+                        R.drawable.img2
                 )
         );
         list.add(
                 new CarouselItem(
-                        R.drawable.bmw,
-                        "BMW"
+                        R.drawable.img3
                 )
         );
         list.add(
                 new CarouselItem(
-                        R.drawable.mercedes,
-                        "Mercedez Benz"
+                        R.drawable.img4
                 )
         );
         list.add(
                 new CarouselItem(
-                        R.drawable.corolla,
-                        "Toyota Corolla"
+                        R.drawable.img5
                 )
         );
 
