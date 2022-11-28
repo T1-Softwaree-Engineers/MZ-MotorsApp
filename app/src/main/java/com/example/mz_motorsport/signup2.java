@@ -2,7 +2,6 @@ package com.example.mz_motorsport;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.util.PatternsCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -66,7 +65,6 @@ public class signup2 extends AppCompatActivity {
         btn_Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = et_email.getText().toString();
                 if (et_name.length() == 0){
                     Toast.makeText(signup2.this, "Ingrese un Nombre", Toast.LENGTH_SHORT).show();
                 }else if(et_email.length() == 0){
@@ -77,10 +75,6 @@ public class signup2 extends AppCompatActivity {
                     Toast.makeText(signup2.this, "Ingrese una Contraseña", Toast.LENGTH_SHORT).show();
                 }else if (et_password.length() > 1 && et_password.length() < 6){
                     Toast.makeText(signup2.this, "Su contraseña debe de tener mas de 6 caracteres", Toast.LENGTH_SHORT).show();
-                }else if(!PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()){
-                    et_email.setError("please enter a valid email");
-                }else if (et_phone.length() > 1 && et_phone.length() < 11){
-                    et_email.setError("please enter a valid phone");
                 }else {
                     registrarUser("https://ochoarealestateservices.com/mzmotors/users.php");
                 }
