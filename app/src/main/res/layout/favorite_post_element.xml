@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#F9FAFB"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
 
@@ -9,9 +11,10 @@
         android:background="@drawable/layout_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -19,7 +22,6 @@
             android:id="@+id/container_title"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp">
-
             <TextView
                 android:id="@+id/deleteFav"
                 android:layout_width="match_parent"
@@ -32,31 +34,60 @@
         </RelativeLayout>
 
 
+
         <RelativeLayout
             android:id="@+id/container_post"
             android:layout_below="@+id/container_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
-            <ImageView
-                android:id="@+id/carro"
-                android:layout_width="199dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/mercedes" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/MyFoto_titlePost"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_marginBottom="30dp"
+                app:cardElevation="0dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <RelativeLayout
+                    android:id="@+id/MyFoto_titlePostContainer"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_img"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        app:cardCornerRadius="20dp"
+                        >
+                        <ImageView
+                            android:id="@+id/carro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/aveo"
+                            android:scaleType="centerCrop"/>}
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/txtPrice"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/carro"
+                android:layout_toRightOf="@+id/MyFoto_titlePost"
                 android:fontFamily="@font/poppins"
                 android:gravity="center"
                 android:text="$ 000,000"
@@ -66,19 +97,22 @@
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_below="@+id/txtPrice"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/carro"
+                android:layout_toRightOf="@+id/MyFoto_titlePost"
                 android:fontFamily="@font/poppins"
                 android:gravity="center"
                 android:text="Mercedes AMG"
                 android:textColor="#262626"
                 android:textSize="15dp" />
 
+
+
         </RelativeLayout>
 
     </RelativeLayout>
+
 
 </RelativeLayout>
