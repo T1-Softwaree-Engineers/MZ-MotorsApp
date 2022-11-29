@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +49,7 @@ public class signup2 extends AppCompatActivity {
     TextView login;
     EditText et_name, et_email, et_phone, et_password;
     Button btn_Signup;
+    CheckBox chTerms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,7 @@ public class signup2 extends AppCompatActivity {
         et_phone = (EditText)findViewById(R.id.et_phone);
         et_password = (EditText)findViewById(R.id.et_password);
         btn_Signup = (Button)findViewById(R.id.btnsignup);
+        chTerms = (CheckBox)findViewById(R.id.chTerms);
 
         //Boton Registrarse
         btn_Signup.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +78,8 @@ public class signup2 extends AppCompatActivity {
                     Toast.makeText(signup2.this, "Ingrese una Contraseña", Toast.LENGTH_SHORT).show();
                 }else if (et_password.length() > 1 && et_password.length() < 6){
                     Toast.makeText(signup2.this, "Su contraseña debe de tener mas de 6 caracteres", Toast.LENGTH_SHORT).show();
+                }else if (chTerms.isChecked()){
+                    Toast.makeText(signup2.this, "Please accept the terms and coditions", Toast.LENGTH_SHORT).show();
                 }else {
                     registrarUser("https://ochoarealestateservices.com/mzmotors/users.php");
                 }

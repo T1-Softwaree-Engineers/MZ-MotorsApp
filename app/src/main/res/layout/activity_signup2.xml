@@ -129,13 +129,26 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <CheckBox
+        android:id="@+id/chTerms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:text="Accept Terms and Conditions"
+        android:textAlignment="center"
+        android:textColor="#0066CC" />
+
     <Button
         android:id="@+id/btnsignup"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/chTerms"
         android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:backgroundTint="#0066CC"
         android:fontFamily="@font/poppins_semibold"
         android:text="Sign up"
@@ -175,30 +188,7 @@
         android:layout_marginRight="218dp"
         android:layout_marginLeft="55dp"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="105dp"
-        android:id="@+id/icons_sign"
-        android:layout_below="@+id/separator2"
-        android:layout_marginTop="10dp"
-        android:paddingBottom="4dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:paddingTop="4dp">
 
-        <ImageButton
-            android:id="@+id/btngoogle"
-            android:layout_width="20.5dp"
-            android:layout_height="20.11dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/google" />
-
-    </LinearLayout>
 
 
     <LinearLayout
@@ -207,7 +197,7 @@
         android:id="@+id/Linea1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/icons_sign">
+        android:layout_below="@+id/or">
 
 
         <TextView
