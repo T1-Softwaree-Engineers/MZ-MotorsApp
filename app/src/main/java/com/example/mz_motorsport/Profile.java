@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,8 +24,9 @@ import org.json.JSONObject;
 
 public class Profile extends AppCompatActivity {
 
-    TextView addphoto, uName, uEmail, uPhone;
+    TextView uName, uEmail, uPhone;
     Button loguot;
+    FloatingActionButton imgProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class Profile extends AppCompatActivity {
         uEmail = (TextView)findViewById(R.id.email);
         uPhone = (TextView)findViewById(R.id.phone);
         loguot = (Button)findViewById(R.id.btnlogout);
+        imgProfile = (FloatingActionButton)findViewById(R.id.imgProfile);
 
         SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
         uName.setText(datosU.getString("nombre", "???Nombre???"));

@@ -38,7 +38,6 @@ public class MyPost extends AppCompatActivity {
     ImageView atras, imgP;
     List<MyPostElement> elements;
     ProgressBar pb;
-    int numFotos=0;
 
     RequestQueue requestQueue;
 
@@ -50,7 +49,6 @@ public class MyPost extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         atras = (ImageView) findViewById(R.id.flecha_atras);
         pb = (ProgressBar)findViewById(R.id.progress_bar);
-        //imgP = (ImageView)findViewById(R.id.imgPrueba);
 
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
