@@ -78,7 +78,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:hint="Email address"
-        app:errorEnabled="true"
         app:startIconDrawable="@drawable/ic_baseline_email_24"
         >
 
@@ -86,7 +85,7 @@
             android:layout_width="300dp"
             android:layout_height="64dp"
             android:fontFamily="@font/poppins_semibold"
-            android:inputType="textEmailAddress" />
+            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -99,7 +98,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:hint="Phone number"
-        app:errorEnabled="true"
         app:startIconDrawable="@drawable/ic_baseline_phone_24"
         >
 
@@ -107,7 +105,7 @@
             android:layout_width="300dp"
             android:layout_height="64dp"
             android:fontFamily="@font/poppins_semibold"
-            android:inputType="number"/>
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

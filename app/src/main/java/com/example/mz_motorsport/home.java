@@ -77,32 +77,30 @@ public class home extends Fragment {
 
         ImageCarousel carousel = vista.findViewById(R.id.carousel);
         carousel.setAutoPlay(true);
-        carousel.setAutoPlayDelay(3000); // Milliseconds
-
+        carousel.setAutoPlayDelay(3000);
         list.add(
                 new CarouselItem(
-                        R.drawable.img1
-
+                        R.drawable.im1
                 )
         );
         list.add(
                 new CarouselItem(
-                        R.drawable.img2
+                        R.drawable.im2
                 )
         );
         list.add(
                 new CarouselItem(
-                        R.drawable.img3
+                        R.drawable.im3
                 )
         );
         list.add(
                 new CarouselItem(
-                        R.drawable.img4
+                        R.drawable.im4
                 )
         );
         list.add(
                 new CarouselItem(
-                        R.drawable.img5
+                        R.drawable.im5
                 )
         );
 
