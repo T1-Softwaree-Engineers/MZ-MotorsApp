@@ -65,7 +65,7 @@
             android:layout_width="300dp"
             android:layout_height="64dp"
             android:fontFamily="@font/poppins_semibold"
-            android:inputType="textPersonName" />
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -79,6 +79,7 @@
         android:layout_marginTop="10dp"
         android:hint="Email address"
         app:startIconDrawable="@drawable/ic_baseline_email_24"
+        app:errorEnabled="true"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -135,8 +136,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
         android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="55dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="55dp"
         android:text="Accept Terms and Conditions"
         android:textAlignment="center"

@@ -37,15 +37,12 @@
         app:cardCornerRadius="80dp"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff">
-
         <ImageView
             android:id="@+id/profileImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:src="@drawable/person_foto"/>
-
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/person_foto"
+            android:scaleType="centerCrop"/>
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -161,11 +158,11 @@
     </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/imgProfile"
+        android:id="@+id/btnImgProfile"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="125dp"
         android:layout_marginLeft="220dp"
+        android:layout_marginTop="125dp"
         android:clickable="true"
         app:srcCompat="@drawable/ic_baseline_add_24" />
 
