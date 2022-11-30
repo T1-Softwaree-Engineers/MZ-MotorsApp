@@ -57,6 +57,8 @@
 		mkdir("users/" .$email . "/" . $last, 0777);
 			
 	    echo "Directorio creado";
+	    
+	    //Crear rutas de las imagenes
 		
 		$path = "users/$email/$last";
 		$actualPath = "https://ochoarealestateservices.com/mzmotors/$path";
@@ -83,28 +85,23 @@
 
     
 	if ($api == 'PUT') {
-	  parse_str(file_get_contents('php://input'), $post_input);
-
-	  $nombre = $post->test_input($post_input['nombre']);
-	  $email = $user->test_input($post_input['email']);
-	  $contacto = $user->test_input($post_input['contacto']);
-      $password = $user->test_input($post_input['pwd']);
-      $password = hash('sha512', $password);
-
-	  if ($id != null) {
-	    if ($user->update($nombre, $email, $contacto, $id)) {
-	      echo $user->message('User updated successfully!',false);
-	    } else {
-	      echo $user->message('Failed to update an user!',true);
-	    }
-	  } else {
-	    echo $user->message('User not found!',true);
-	  }
-	}
+	    //parse_str(file_get_contents('php://input'), $post_input);
+        if ($id != null) {
+            if ($post->updateMarkSold($id)) {
+	            echo $post->message('User updated successfully!',false);
+    	    }else{
+	            echo $post->message('Failed to update an user!',true);
+	        }
+        }else{
+            echo $post->message('User not found!', true);
+        }
+	 } 
+	
 
 	if ($api == 'DELETE') {
 	  if ($id != null) {
-	    if ($post->deletePublicaciones($id)) {
+	      $email = $_GET['email'];
+	    if ($post->deletePublicaciones($id, $email)) {
 	      echo $post->message('User deleted successfully!', false);
 	    } else {
 	      echo $post->message('Failed to delete an user!', true);

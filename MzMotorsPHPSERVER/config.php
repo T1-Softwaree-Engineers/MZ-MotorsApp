@@ -2,9 +2,9 @@
 	class Config {
 
 	  private const DBHOST = 'localhost';
-	  private const DBUSER = 'u584847502_mzmotors';
-	  private const DBPASS = 'o*cECY0gO?E3';
-	  private const DBNAME = 'u584847502_mzmotors';
+	  private const DBUSER = '';
+	  private const DBPASS = '';
+	  private const DBNAME = '';
 
 	  private $dsn = 'mysql:host=' . self::DBHOST . ';dbname=' . self::DBNAME . '';
 

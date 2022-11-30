@@ -25,11 +25,16 @@
 	}*/
 
 	if ($api == 'GET') {
+	    if(isset($_GET['email']) && isset($_GET['pwd'])){
+	        $email = $user->test_input($_GET['email']);
+    		$password = $user->test_input($_GET['pwd']);
+    		$password = hash('sha512', $password);
+    		echo json_encode($user->login($email, $password));
+	    }else if (isset($_GET['email'])){
+	        $email = $user->test_input($_GET['email']);
+	        echo json_encode($user->getInfoContactSeller($email));
+	    }
 		
-		$email = $user->test_input($_GET['email']);
-		$password = $user->test_input($_GET['pwd']);
-		$password = hash('sha512', $password);
-		echo json_encode($user->login($email, $password));
 	}
 
 	if ($api == 'POST') {
