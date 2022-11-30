@@ -95,8 +95,9 @@ public class login2 extends AppCompatActivity {
                     String uName = jsonObject.getString("nombre");
                     String uEmail = jsonObject.getString("email");
                     String uPhone = jsonObject.getString("contacto");
+                    String uFoto = jsonObject.getString("fperfil");
                     Toast.makeText(login2.this, "Inicio Exitoso", Toast.LENGTH_SHORT).show();
-                    guardarSession(uName,uEmail,uPhone);
+                    guardarSession(uName,uEmail,uPhone, uFoto);
                     startActivity(new Intent(login2.this, navigation.class));
                     finish();
                 }catch (JSONException e){
@@ -114,12 +115,13 @@ public class login2 extends AppCompatActivity {
 
     }
 
-    private void guardarSession(String uName, String uEmail, String uPhone) {
+    private void guardarSession(String uName, String uEmail, String uPhone, String uFoto) {
         SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=datosU.edit();
         editor.putString("nombre",uName);
         editor.putString("email",uEmail);
         editor.putString("phone",uPhone);
+        editor.putString("FotoP",uFoto);
         editor.putBoolean("session",true);
         editor.commit();
     }

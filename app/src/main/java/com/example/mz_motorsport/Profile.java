@@ -74,7 +74,7 @@ public class Profile extends AppCompatActivity {
         uName.setText(datosU.getString("nombre", "???Nombre???"));
         uEmail.setText(datosU.getString("email", "???Email???"));
         uPhone.setText(datosU.getString("phone", "???Contacto???"));
-        String rutaImg = datosU.getString("img", "???img???");
+        String rutaImg = datosU.getString("FotoP", "???img???");
         Picasso.get().load("https://ochoarealestateservices.com/mzmotors/"+rutaImg).error(R.mipmap.ic_launcher_round).into(imgProfile);
 
         btnImgProfile.setOnClickListener(new View.OnClickListener() {
@@ -127,7 +127,7 @@ public class Profile extends AppCompatActivity {
                     public void onResponse(String response) {
                         SharedPreferences datosU = getSharedPreferences("sessionUsuario", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor=datosU.edit();
-                        editor.putString("img", response);
+                        editor.putString("FotoP", response);
                         editor.commit();
                     }
                 }, new Response.ErrorListener() {

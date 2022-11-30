@@ -283,20 +283,9 @@
                 android:id="@+id/mensaje1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
                 android:layout_marginTop="13dp"
                 android:text="This post is yours"
-                android:textSize="14dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mensaje1"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="1dp"
-                android:text="Click here to edit the post"
                 android:textSize="14dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins_bold"/>
