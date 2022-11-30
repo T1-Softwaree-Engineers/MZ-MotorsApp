@@ -168,7 +168,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
+            android:layout_below="@+id/btnvender"
+            android:layout_marginTop="290dp">
 
             <TextView
                 android:id="@+id/txt1"
@@ -182,7 +183,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/txt2"
+                android:id="@+id/terms_conditions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt1"

@@ -134,7 +134,7 @@ public class home extends Fragment {
         }
 
         if (filteredlist.isEmpty()){
-            Toast.makeText(getActivity(), "NO data found", Toast.LENGTH_SHORT).show();
+
         }else {
             adapter.setfilteredlist(filteredlist);
         }

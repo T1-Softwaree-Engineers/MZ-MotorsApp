@@ -22,13 +22,19 @@
             android:id="@+id/container_title"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp">
+
+            <TextView
+                android:id="@+id/Fav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_favorite_24"
+                android:textSize="20dp"/>
             <TextView
                 android:id="@+id/deleteFav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/ic_baseline_delete_24"
-                android:textSize="20dp"
-                android:fontFamily="@font/poppins">
+                android:textSize="20dp">
             </TextView>
 
         </RelativeLayout>

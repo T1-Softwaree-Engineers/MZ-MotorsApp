@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -18,6 +19,7 @@ public class person extends Fragment {
 
     View vista;
     CardView btnvender, btnMypost, btnProfile;
+    TextView terms_conditions;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -25,6 +27,8 @@ public class person extends Fragment {
         btnvender = (CardView) vista.findViewById(R.id.btnvender);
         btnMypost = (CardView) vista.findViewById(R.id.btnMyPost);
         btnProfile = (CardView) vista.findViewById(R.id.btnProfile);
+
+        terms_conditions = (TextView) vista.findViewById(R.id.terms_conditions);
 
 
         // Inflate the layout for this fragment
@@ -57,10 +61,17 @@ public class person extends Fragment {
             }
         });
 
+        terms_conditions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), politicas.class);
+                i.putExtra("pdf_url", "https://ochoarealestateservices.com/mzmotors/Politicas%20de%20Privacidad%20MZMOTORS%20APP.pdf");
+                startActivity(i);
+            }
+        });
+
 
         return vista;
-
-
 
 
     }
