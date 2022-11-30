@@ -49,7 +49,7 @@ public class CarDetails extends AppCompatActivity {
 
     Button btn_interested;
     TextView nameCar, priceCar, descriptionCar, locationCar, detailsCar, seeAll, txtFeature, txtFeature2,favorite;
-    ImageView atras;
+    ImageView atras, heart;
 
     RelativeLayout footer;
     String sellerName, sellerEmail, sellerPhone;
@@ -72,7 +72,7 @@ public class CarDetails extends AppCompatActivity {
         txtFeature = (TextView)findViewById(R.id.txtFeature);
         txtFeature2 = (TextView)findViewById(R.id.txtFeature2);
         favorite = (TextView) findViewById(R.id.favorite);
-
+        heart = (ImageView) findViewById(R.id.heart);
         btn_interested = (Button)findViewById(R.id.btn_interested);
         footer = (RelativeLayout)findViewById(R.id.footer_bg);
         atras = (ImageView)findViewById(R.id.flecha_atras);
@@ -81,9 +81,12 @@ public class CarDetails extends AppCompatActivity {
         boolean MyPost = getIntent().getBooleanExtra("YourPost", false);
         if(MyPost){
             btn_interested.setVisibility(View.GONE);
+            favorite.setVisibility(View.GONE);
+            heart.setVisibility(View.GONE);
 
         }else{
             footer.setVisibility(View.GONE);
+
         }
 
         d_contact = new Dialog(this);
