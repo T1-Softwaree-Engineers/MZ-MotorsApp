@@ -1,6 +1,6 @@
 # MZ-Motors Users App
 
-![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)
+![Badge en Desarollo](![STATUS](https://img.shields.io/badge/STATUS-FINALIZADO-red))
 
 
 Sell or Buy a car inseide the aplication made in android studio
